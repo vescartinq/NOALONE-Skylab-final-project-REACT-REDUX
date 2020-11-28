@@ -1,0 +1,4 @@
+Logo colors: #EDBC47 #EE3751 
+Icon colors: 
+Text colors: #E8BF23 
+Fonts: Aclonica 
