@@ -13,7 +13,7 @@ function challengeRouter(challengeSchema) {
 
   router.route('/:challengeId')
     .get(challenge.getByIdMethod)
-    .delete(challenge.deleteByIdMethod);
+    .delete(challenge.deleteByIdMethod)
     .patch(challenge.patchByIdMethod);
 
   return router;

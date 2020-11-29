@@ -1,0 +1,1 @@
+const challengeIdController = require('./challengeIdController');
