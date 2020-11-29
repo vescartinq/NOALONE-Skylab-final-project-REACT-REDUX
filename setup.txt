@@ -58,3 +58,14 @@ npm install @material-ui/icons
 
 5 TYPES REACT
 npm i @types/react
+
+6 FONT AWESOME
+npm i font-awesome
+npm i @fortawesome/react-fontawesome
+
+7 FONT AWESOME FREE BRANDS
+npm i @fortawesome/fontawesome-free-brands
+npm i @fortawesome/free-brands-svg-icons
+
+8 REACT ROUTER DOM
+npm i react-router-dom
