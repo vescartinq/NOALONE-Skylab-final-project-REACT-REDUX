@@ -1,10 +1,11 @@
 function challengeIdController(challengeSchema) {
   function getByIdMethod(req, res) {
-    const { challengeId } = req.params;
-
-    challengeSchema.findOne({ _id: challengeId }, (errorFindChallenges, challenges) => {
-      errorFindChallenges ? res.send(errorFindChallenges) : res.json(challenges);
-    });
+    const query = { _id: req.params.challengeId };
+    const getCallBack = (getError, challenges) => (
+      getError ? res.send(getError) : res.send(challenges)
+    );
+    challengeSchema.findOne(query)
+      .exec(getCallBack);
   }
 
   function deleteByIdMethod(req, res) {
@@ -17,26 +18,9 @@ function challengeIdController(challengeSchema) {
     challengeSchema.deleteOne(query, deleteCallback);
   }
 
-  function patchByIdMethod(req, res) { // TODO: ' Something';
-    //     const { challengeId } = req.params;
-    //     const query = { _id: challengeId };
+  // TODO: PatchMethod;
 
-    //     const patchCallback = (error) => {
-    //       error ? res.send(error) : res.send('Updated Challenge');
-    //     };
-    //     challengeSchema.updateOne(query, { _id: challengeId }, patchCallback);
-    //   }
-
-    // function getByIdMethod(req, res) {
-    //     const { challengeId } = req.params;
-
-    //     challengeSchema.findOne({ _id: challengeId }, (errorFindChallenges, challenges) => {
-    //       errorFindChallenges ? res.send(errorFindChallenges) : res.json(challenges);
-    //     });
-    //   }
-  }
-
-  return { getByIdMethod, deleteByIdMethod, patchByIdMethod };
+  return { getByIdMethod, deleteByIdMethod };
 }
 
 module.exports = challengeIdController;
