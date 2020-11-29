@@ -1,0 +1,60 @@
+-------BACKEND-----------
+1.NODE MODULES
+npm init
+
+2. EXPRESS
+npm i EXPRESS
+
+3 ESLINT
+npm i -D ESLINTnpx eslint --init
+
+4 BODY-PARSER(Middleware para recoger datos de http y tratarlos en la BBDD)
+npm i body-parser
+
+5 CHALK (colores a la terminal del server)
+npm i chalk
+
+6 CORS
+npm i cors
+
+7 DEBUG
+npm i debug
+
+
+8 MORGAN(entrega información en la terminal sobre las peticiones al servidor. Suele utilizarse tiny o combined)
+npm i morgan
+
+9 NODEMON
+npm i nodemon
+
+10  MONGOOSE
+npm i mongoose
+
+11 JEST
+npm i jest
+
+
+----------FRONTEND----------
+1. MATERIAL UI 
+npm install @material-ui/core
+
+2. FONT AND ICONS
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+
+3 SVG ICONS
+npm install @material-ui/icons
+
+4.ESLINT
+      rules: {
+      'linebreak-style': 0,
+      'global-require': 0,
+      'eslint linebreak-style': [0, 'error', 'windows'],
+      'no-case-declarations': 0,
+      'no-underscore-dangle': 0,
+      'no-debugger': 1,
+    },
+
+5 TYPES REACT
+npm i @types/react
