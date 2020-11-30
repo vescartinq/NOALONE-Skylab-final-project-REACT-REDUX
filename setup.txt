@@ -69,3 +69,9 @@ npm i @fortawesome/free-brands-svg-icons
 
 8 REACT ROUTER DOM
 npm i react-router-dom
+
+9 REDUX
+npm i redux
+
+10 REDUX-THUNK
+npm i redux-thunk

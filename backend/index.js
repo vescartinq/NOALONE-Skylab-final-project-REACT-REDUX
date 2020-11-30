@@ -9,7 +9,7 @@ const challengeSchema = require('./models/challengeSchema');
 const challengeRouter = require('./routes/challengeRouter')(challengeSchema);
 
 const app = express();
-const port = process.env.PORT || 2802;
+const port = process.env.PORT || 3000;
 const dbUrl = process.env.DBURL || 'mongodb://localhost/noalonedb';
 
 mongoose.connect(dbUrl, {

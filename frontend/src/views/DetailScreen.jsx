@@ -1,11 +1,19 @@
 import React from 'react';
-import ChallengeCard from '../Components/ChallengeCard';
+
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from '../themeConfig';
+
+import MainContainer from '../Components/MainContainer';
+import Footer from '../Components/Footer';
 
 function DetailScreen() {
   return (
-    <div>
-      <ChallengeCard />
-    </div>
+
+    <ThemeProvider theme={theme}>
+      <MainContainer />
+      <Footer />
+    </ThemeProvider>
+
   );
 }
 
