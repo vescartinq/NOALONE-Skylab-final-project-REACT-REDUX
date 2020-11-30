@@ -1,0 +1,18 @@
+.card-info_item{
+    margin:auto;
+}
+
+.card-info_item-title{
+    font-size:80%;
+    color: rgb(158, 158, 158);
+    font-weight: 700;
+}
+
+.card-info_item-detail{
+    font-size: 100%;
+    font-weight: 700;
+}
+
+#collected{
+    color:red;
+}
