@@ -1,6 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import {List, ListItem, ListItemIcon, ListItemText, Divider} from '@material-ui/core';
+import {
+  List, ListItem, ListItemIcon, ListItemText, Divider,
+} from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
@@ -51,7 +53,7 @@ export default function DataList() {
         <ListItem button>
           <ListItemText primary="DashBoard" />
         </ListItem>
-        
+
         <ListItemLink href="#simple-list">
           <ListItemText primary="Donate" />
         </ListItemLink>

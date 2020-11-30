@@ -1,0 +1,46 @@
+.card-item{
+    background-color: rgb(177, 177, 177);
+    margin-top:1em;
+    border: 1px solid rgb(182, 182, 182);
+    border-radius:5px;
+    box-shadow:3px 3px rgba(190, 190, 190, 0.719);
+    text-align: center;
+    justify-content: center;
+}
+
+.card-box{
+    background-color: rgb(153, 153, 153);
+    color: white;
+    padding: 0.5em;
+    border: 3px solid #F57C00;
+    border-radius:10px;
+    box-shadow: rgba(0, 0, 0, 0.274) 7px 7px;
+}
+
+.card-info_section{
+    display:grid;
+    grid-template-columns: 40% 60%;
+    
+    align-items: center;
+}
+
+.card-info_section > p{
+    padding: 5px;
+    text-align: center;
+}
+
+.card-info_box{
+    display:grid;
+    grid-template-columns: auto auto;
+    grid-gap:15px;
+    text-align: center;
+    border-radius:15px;
+}
+
+.MuiPaper-root{
+    margin:auto;
+}
+
+.MuiCardMedia-root.makeStyles-media-8{
+    border-radius:10px;
+}
