@@ -23,7 +23,7 @@ import CardBoxInfo from './CardBoxInfo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 600,
+    maxWidth: 1200,
   },
   media: {
     height: 0,
@@ -69,19 +69,23 @@ export default function CallengeCard() {
           title={data.challenges[0].title}
           subheader={data.challenges[0].date}
         />
-        <CardMedia
-          className={classes.media}
-          image={data.challenges[0].image}
-          title={data.challenges[0].category}
-        />
         <CardContent className="card-info_section">
-          <Typography variant="body2" color="textSecondary" component="p">
-            {data.challenges[0].miniDescription}
-          </Typography>
+          <CardMedia
+            id="card-info_image"
+            className={classes.media}
+            image={data.challenges[0].image}
+            title={data.challenges[0].category}
+          />
           <CardBoxInfo />
         </CardContent>
         <CardContent>
-          <Button size="large" type="button" variant="contained" color="primary">DONATE</Button>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {data.challenges[0].miniDescription}
+          </Typography>
+
+        </CardContent>
+        <CardContent>
+          <Button size="large" type="button" variant="contained" color="primary" fullWidth>DONATE</Button>
         </CardContent>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
@@ -103,7 +107,12 @@ export default function CallengeCard() {
         </CardActions>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
-            <Typography paragraph>Objetivo del Challenge</Typography>
+            <Typography paragraph>
+              <hr />
+              {' '}
+              <b>Objetivo del Challenge</b>
+              {' '}
+            </Typography>
             <Typography paragraph>
               {data.challenges[0].description}
             </Typography>

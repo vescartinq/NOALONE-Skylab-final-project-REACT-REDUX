@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ThemeProvider } from '@material-ui/core/styles';
-import theme from './themeConfig';
+import theme from '../themeConfig';
 
 import MainContainer from '../Components/MainContainer';
 import Footer from '../Components/Footer';

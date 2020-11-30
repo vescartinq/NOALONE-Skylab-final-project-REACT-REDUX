@@ -1,27 +1,28 @@
 .card-item{
-    background-color: rgb(177, 177, 177);
     margin-top:1em;
     border: 1px solid rgb(182, 182, 182);
     border-radius:5px;
     box-shadow:3px 3px rgba(190, 190, 190, 0.719);
     text-align: center;
     justify-content: center;
+    width: 100%;
 }
 
 .card-box{
-    background-color: rgb(153, 153, 153);
-    color: white;
-    padding: 0.5em;
+    padding: 1em;
     border: 3px solid #F57C00;
     border-radius:10px;
     box-shadow: rgba(0, 0, 0, 0.274) 7px 7px;
+    height:25vw;
+    width: 35vw;
 }
 
 .card-info_section{
     display:grid;
-    grid-template-columns: 40% 60%;
-    
+    grid-template-columns: 50% 50%;
+    grid-gap:0.5em;
     align-items: center;
+    margin:auto;
 }
 
 .card-info_section > p{
@@ -32,15 +33,24 @@
 .card-info_box{
     display:grid;
     grid-template-columns: auto auto;
-    grid-gap:15px;
+    grid-gap:10px;
     text-align: center;
     border-radius:15px;
+    height:90%;
+    margin:auto;
 }
+
 
 .MuiPaper-root{
     margin:auto;
 }
 
-.MuiCardMedia-root.makeStyles-media-8{
+/* DETAIL IMAGE */
+#card-info_image{
     border-radius:10px;
+    height:5vw;
+    width: 35vw;
+    margin:0 auto;
 }
+
+

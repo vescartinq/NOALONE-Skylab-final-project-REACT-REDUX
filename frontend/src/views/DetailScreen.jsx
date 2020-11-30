@@ -1,9 +1,10 @@
 import React from 'react';
+import ChallengeCard from '../Components/ChallengeCard';
 
 function DetailScreen() {
   return (
     <div>
-      DETAIL
+      <ChallengeCard />
     </div>
   );
 }
