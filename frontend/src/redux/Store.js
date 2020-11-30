@@ -1,15 +1,24 @@
 import {
-  applyMiddleware, compose, createStore,
+  createStore, compose, applyMiddleware, combineReducers,
 } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers/challengeReducer';
 
-export default function configureStore(initialState) {
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+import {
+  challengeDetailsReducer,
+  challengeListReducer,
+} from './reducers/challengeReducer';
 
-  return createStore(
-    rootReducer,
-    initialState,
-    composeEnhancers(applyMiddleware(thunk)),
-  );
-}
+const initialState = {};
+
+const reducer = combineReducers({
+  challengeList: challengeListReducer,
+  challengeDetails: challengeDetailsReducer,
+});
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducer,
+  initialState,
+  composeEnhancer(applyMiddleware(thunk)),
+);
+
+export default store;
