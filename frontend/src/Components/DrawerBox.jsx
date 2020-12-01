@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Drawer, Divider } from '@material-ui/core';
-import DataList from './DataList';
+import DataList from './DataList/DataList';
 
 const styles = makeStyles((theme) => ({
   drawer: {
@@ -13,8 +13,9 @@ const styles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
 }));
 
-const DrawerBox = (props) => {
+function DrawerBox(props) {
   const classes = styles();
+  const actions = props;
 
   return (
     <Drawer
@@ -23,15 +24,15 @@ const DrawerBox = (props) => {
         paper: classes.drawerPaper,
       }}
       anchor="left"
-      variant={props.variant}
-      open={props.open}
-      onClose={props.onClose ? props.onClose : null}
+      variant={actions.variant}
+      open={actions.open}
+      onClose={actions.onClose ? actions.onClose : null}
     >
       <div className={classes.toolbar} />
       <Divider />
       <DataList />
     </Drawer>
   );
-};
+}
 
 export default DrawerBox;

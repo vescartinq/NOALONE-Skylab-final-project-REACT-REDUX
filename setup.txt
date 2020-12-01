@@ -75,3 +75,7 @@ npm i redux
 
 10 REDUX-THUNK
 npm i redux-thunk
+
+11 SLIDER CAROUSEL
+npm i slider-carousel
+npm i react-elastic-carousel

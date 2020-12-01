@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import data from '../data';
 
 import './CardBoxInfo.css';
 
-function CardBoxInfo() {
+function CardBoxInfo(props) {
+  const challenge = props;
   return (
     <>
       <div className="card-box">
@@ -12,7 +12,7 @@ function CardBoxInfo() {
             <div className="card-info_item-title">COLLECTED:</div>
 
             <div id="collected" className="card-info_item-detail">
-              {data.challenges[0].collected}
+              {challenge.collected}
               {' '}
               €
             </div>
@@ -21,7 +21,7 @@ function CardBoxInfo() {
             <div className="card-info_item-title">GOAL:</div>
 
             <div className="card-info_item-detail">
-              {data.challenges[0].target}
+              {challenge.target}
               {' '}
               €
             </div>
@@ -30,7 +30,7 @@ function CardBoxInfo() {
             <div className="card-info_item-title">DONATIONS:</div>
 
             <div className="card-info_item-detail">
-              {data.challenges[0].participants}
+              {challenge.participants}
               {' '}
               participants
             </div>
@@ -39,7 +39,7 @@ function CardBoxInfo() {
             <div className="card-info_item-title">REMAINING:</div>
 
             <div className="card-info_item-detail">
-              {data.challenges[0].days}
+              {challenge.days}
               {' '}
               days
             </div>

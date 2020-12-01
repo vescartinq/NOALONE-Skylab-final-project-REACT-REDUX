@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Hidden, makeStyles } from '@material-ui/core';
-import Header from './Header';
+import Header from './Header/Header';
 import DrawerBox from './DrawerBox';
 
-import ChallengeCard from './ChallengeCard';
+import ChallengeCard from './ChallengeCard/ChallengeCard';
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -17,7 +17,8 @@ const styles = makeStyles((theme) => ({
   },
 }));
 
-const MainContainer = () => {
+function MainContainer(props) {
+  const challenge = props;
   const classes = styles();
   const [open, setOpen] = useState(false);
   const openAction = () => {
@@ -36,11 +37,11 @@ const MainContainer = () => {
       </Hidden>
       <div className={classes.content}>
         <div className={classes.toolbar} />
-        <ChallengeCard className="challenge-item" />
+        <ChallengeCard className="challenge-item" challenge={challenge} />
       </div>
 
     </div>
   );
-};
+}
 
 export default MainContainer;

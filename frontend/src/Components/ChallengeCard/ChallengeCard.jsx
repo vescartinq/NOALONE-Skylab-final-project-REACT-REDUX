@@ -18,8 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import './ChallengeCard.css';
 import { Button } from '@material-ui/core';
-import data from '../data';
-import CardBoxInfo from './CardBoxInfo';
+import CardBoxInfo from '../CardBoxInfo/CardBoxInfo';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,7 +43,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CallengeCard() {
+export default function ChallengeCard(props) {
+  const challenge = props;
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -66,21 +66,21 @@ export default function CallengeCard() {
               <MoreVertIcon />
             </IconButton>
         )}
-          title={data.challenges[0].title}
-          subheader={data.challenges[0].date}
+          title={challenge.title}
+          subheader={challenge.date}
         />
         <CardContent className="card-info_section">
           <CardMedia
             id="card-info_image"
             className={classes.media}
-            image={data.challenges[0].image}
-            title={data.challenges[0].category}
+            image={challenge.image}
+            title={challenge.category}
           />
           <CardBoxInfo />
         </CardContent>
         <CardContent>
           <Typography variant="body2" color="textSecondary" component="p">
-            {data.challenges[0].miniDescription}
+            {challenge.miniDescription}
           </Typography>
 
         </CardContent>
@@ -114,7 +114,7 @@ export default function CallengeCard() {
               {' '}
             </Typography>
             <Typography paragraph>
-              {data.challenges[0].description}
+              {challenge.description}
             </Typography>
           </CardContent>
           <CardContent>
