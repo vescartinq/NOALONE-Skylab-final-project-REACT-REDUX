@@ -1,0 +1,21 @@
+.slider-item{
+    position:relative;
+    display:inline-block;
+}
+
+.slider-item>img{
+    height: 450px;
+    width: 100vw;
+    object-fit: fill;
+    filter: brightness(0.4);
+}
+
+
+.slider-item>p{
+    position: absolute;
+    top:50%;
+    left:5%;
+    font-size: 4em;
+    font-weight: bold;
+    color: white;
+}

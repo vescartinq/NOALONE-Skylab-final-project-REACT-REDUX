@@ -20,7 +20,7 @@ const useStyle = makeStyles((theme) => ({
 
 }));
 
-const Header = (props) => {
+function Header(props) {
   const classes = useStyle();
 
   return (
@@ -50,6 +50,6 @@ const Header = (props) => {
       </Toolbar>
     </AppBar>
   );
-};
+}
 
 export default Header;

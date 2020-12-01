@@ -1,13 +1,16 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import Slider from 'infinite-react-carousel';
+import Slider from 'react-carousel-responsive';
+import 'react-carousel-responsive/dist/styles.css';
 
 import { listChallenges } from '../redux/actions/challenge-actions';
 
 import CardList from '../Components/CardList/CardList';
 import './ListScreen.css';
+import MainSlider from '../Components/MainSlider/MainSlider';
 
 function ListScreen() {
   const dispatch = useDispatch();
@@ -19,26 +22,25 @@ function ListScreen() {
   }, [dispatch]);
 
   return (
-    <>
-      <div>
-        {loading ? (
-          <div>LOADING</div>
-        ) : error ? (
-          <div>ERROR</div>
-        ) : (
 
-          <Slider dots rows={1} slidesToShow={3} autoplay adaptiveHeight overScan={3}>
+    <div className="listScreen-mainContainer">
+      <MainSlider />
+      {loading ? (
+        <div>LOADING</div>
+      ) : error ? (
+        <div>ERROR</div>
+      ) : (
 
-            {challenges.map((challenge) => (
-              // SLIDER
+        <Slider slidesToShow={3} autoplay autoplaySpeed={3000} speed={1000}>
+          {challenges.map((challenge) => (
+            <Link to={`/challenges/${challenge._id}`} key={challenge._id} className="text-link">
+              <CardList challenge={challenge} />
+            </Link>
+          ))}
+        </Slider>
+      )}
+    </div>
 
-              <CardList key={challenge._id} challenge={challenge} />
-
-            ))}
-          </Slider>
-        )}
-      </div>
-    </>
   );
 }
 
