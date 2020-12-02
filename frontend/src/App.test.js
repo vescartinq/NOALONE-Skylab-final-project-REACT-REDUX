@@ -1,8 +1,19 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import App from './App';
+import store from './redux/Store';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it('renders without crashing', () => {
+  const div = document.createElement('div');
+  ReactDOM.render(
+    <Provider store={store}>
+      <React.StrictMode>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </React.StrictMode>
+    </Provider>, div,
+  );
 });

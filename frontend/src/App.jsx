@@ -7,12 +7,12 @@ import { ThemeProvider } from '@material-ui/core/styles';
 
 import Header from './Components/Header/Header';
 import './Components/Header/Header.css';
-import DrawerBox from './Components/DrawerBox';
+import DrawerBox from './Components/DrawerBox/DrawerBox';
 import Footer from './Components/Footer/Footer';
 import './Components/Footer/footer.css';
-import DetailScreen from './views/DetailScreen';
-import ListScreen from './views/ListScreen';
-import DashboardScreen from './views/DashboardScreen';
+import DetailScreen from './views/DetailScreen/DetailScreen';
+import ListScreen from './views/ListScreen/ListScreen';
+import DashboardScreen from './views/DashboardScreen/DashboardScreen';
 
 import theme from './themeConfig';
 

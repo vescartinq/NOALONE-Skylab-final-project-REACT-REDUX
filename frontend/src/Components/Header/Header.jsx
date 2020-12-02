@@ -21,6 +21,8 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 function Header(props) {
+  // eslint-disable-next-line no-debugger
+  debugger;
   const classes = useStyle();
 
   return (
@@ -28,6 +30,7 @@ function Header(props) {
     <AppBar className={classes.appbar}>
       <Toolbar>
         <IconButton
+          id="test-btn"
           color="inherit"
           arial-label="menu"
           className={classes.menuButton}
