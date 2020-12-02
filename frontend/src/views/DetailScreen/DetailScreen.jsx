@@ -3,11 +3,11 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { detailsChallenge } from '../redux/actions/challenge-actions';
+import { detailsChallenge } from '../../redux/actions/challenge-actions';
 
-import theme from '../themeConfig';
+import theme from '../../themeConfig';
 
-import ChallengeCard from '../Components/ChallengeCard/ChallengeCard';
+import ChallengeCard from '../../Components/ChallengeCard/ChallengeCard';
 
 function DetailScreen() {
   const dispatch = useDispatch();
@@ -24,11 +24,11 @@ function DetailScreen() {
     <ThemeProvider theme={theme}>
       <div>
         {loading ? (
-          <div>LOADING</div>
+          <div className="loading">LOADING</div>
         ) : error ? (
-          <div>ERROR</div>
+          <div className="error">ERROR</div>
         ) : (
-          <div>
+          <div className="ChallengeCard-item">
             <ChallengeCard className="challenge-item" challenge={challenge} />
           </div>
         )}

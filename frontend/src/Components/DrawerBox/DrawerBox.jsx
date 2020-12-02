@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles, Drawer, Divider } from '@material-ui/core';
-import DataList from './DataList/DataList';
+import DataList from '../DataList/DataList';
 
 const styles = makeStyles((theme) => ({
   drawer: {
