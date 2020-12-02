@@ -24,5 +24,8 @@ module.exports = {
     'global-require': 0,
     'eslint linebreak-style': [0, 'error', 'windows'],
     'no-underscore-dangle': [0],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/prop-types': ['off'],
+    'no-shadow': 'off',
   },
 };

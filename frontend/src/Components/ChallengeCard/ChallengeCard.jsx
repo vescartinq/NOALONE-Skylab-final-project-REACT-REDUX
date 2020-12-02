@@ -43,22 +43,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ChallengeCard(props) {
-  // eslint-disable-next-line react/prop-types
-  const { challenge } = props;
-
+export default function ChallengeCard({ challenge }) {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  console.log('aqui');
-  // eslint-disable-next-line no-debugger
-  debugger;
+
   return (
     <>
-      <div>{challenge.title}</div>
       <div className="card-item">
         <Card className={classes.root}>
           <CardHeader
@@ -83,7 +77,7 @@ export default function ChallengeCard(props) {
               image={challenge.image}
               title={challenge.category}
             />
-            <CardBoxInfo />
+            <CardBoxInfo challenge={challenge} />
           </CardContent>
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p">

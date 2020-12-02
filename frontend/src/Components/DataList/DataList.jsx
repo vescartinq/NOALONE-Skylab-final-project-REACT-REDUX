@@ -51,9 +51,13 @@ export default function DataList() {
       <Divider />
 
       <List component="nav" aria-label="secondary mailbox folders">
-        <ListItem button>
-          <ListItemText primary="DashBoard" />
-        </ListItem>
+        <ListItemLink href="/">
+          <ListItemText primary="Dashboard" />
+        </ListItemLink>
+
+        <ListItemLink href="/challenges">
+          <ListItemText primary="Challenges List" />
+        </ListItemLink>
 
         <ListItemLink href="#simple-list">
           <ListItemText primary="Donate" />

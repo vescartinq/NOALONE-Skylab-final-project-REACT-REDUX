@@ -26,18 +26,20 @@ function ListScreen() {
     <div className="listScreen-mainContainer">
       <MainSlider />
       {loading ? (
-        <div>LOADING</div>
+        <div className="loading">LOADING</div>
       ) : error ? (
-        <div>ERROR</div>
+        <div className="error">ERROR</div>
       ) : (
-
-        <Slider slidesToShow={3} autoplay autoplaySpeed={3000} speed={1000}>
-          {challenges.map((challenge) => (
-            <Link to={`/challenges/${challenge._id}`} key={challenge._id} className="text-link">
-              <CardList challenge={challenge} />
-            </Link>
-          ))}
-        </Slider>
+        <>
+          <div className="list-challenges_item">Challenges a punto de terminar</div>
+          <Slider slidesToShow={3} autoplay autoplaySpeed={3000} speed={1000}>
+            {challenges.map((challenge) => (
+              <Link to={`/challenges/${challenge._id}`} key={challenge._id} className="text-link">
+                <CardList challenge={challenge} />
+              </Link>
+            ))}
+          </Slider>
+        </>
       )}
     </div>
 

@@ -2,8 +2,7 @@ import React, { Fragment } from 'react';
 
 import './CardBoxInfo.css';
 
-function CardBoxInfo(props) {
-  const challenge = props;
+function CardBoxInfo({ challenge }) {
   return (
     <>
       <div className="card-box">
