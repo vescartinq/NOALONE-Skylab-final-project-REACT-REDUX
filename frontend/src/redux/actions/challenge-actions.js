@@ -21,8 +21,6 @@ export const listChallenges = () => async (dispatch) => {
 };
 
 export const detailsChallenge = (challengeId) => async (dispatch) => {
-  // eslint-disable-next-line no-debugger
-  debugger;
   dispatch({ type: CHALLENGE_DETAILS_REQUEST, payload: challengeId });
   try {
     const { data } = await Axios.get(`/challenges/${challengeId}`);

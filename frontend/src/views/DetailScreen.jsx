@@ -1,13 +1,13 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import { detailsChallenge } from '../redux/actions/challenge-actions';
 
 import theme from '../themeConfig';
 
-import MainContainer from '../Components/MainContainer';
+import ChallengeCard from '../Components/ChallengeCard/ChallengeCard';
 
 function DetailScreen() {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ function DetailScreen() {
           <div>ERROR</div>
         ) : (
           <div>
-            <MainContainer challenge={challenge} />
+            <ChallengeCard className="challenge-item" challenge={challenge} />
           </div>
         )}
       </div>
