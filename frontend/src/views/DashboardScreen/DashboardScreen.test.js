@@ -6,10 +6,10 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import DashboardScreen from './DashboardScreen';
 
-jest.mock('../../redux/actions/challenge-actions.js');
+jest.mock('./../../redux/actions/challenge-actions.js');
 const buildStore = configureStore([thunk]);
 
-describe('DetailScreen', () => {
+describe('Challenge', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -23,9 +23,41 @@ describe('DetailScreen', () => {
     );
   };
 
+  test('should waiting loaded data to render the compo', () => {
+    const initialState = {
+      challengeList: {
+        loading: true,
+        error: false,
+        projects: [{
+          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+        }],
+      },
+    };
+
+    wrapper = wrapperFactory(initialState);
+    render(<DashboardScreen />, { wrapper });
+    expect(document.querySelector('.loading').textContent).toBe('LOADING');
+  });
+
+  test('should waiting loaded data to render the compo', () => {
+    const initialState = {
+      challengeList: {
+        loading: false,
+        error: true,
+        projects: [{
+          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+        }],
+      },
+    };
+
+    wrapper = wrapperFactory(initialState);
+    render(<DashboardScreen />, { wrapper });
+    expect(document.querySelector('.error').textContent).toBe('ERROR');
+  });
+
   test('should be rended', () => {
     const initialState = {
-      challengeDetails: {
+      challengeList: {
         loading: true,
         error: false,
         projects: [{

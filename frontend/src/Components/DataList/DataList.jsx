@@ -30,21 +30,21 @@ export default function DataList() {
           <ListItemIcon>
             <AccountCircleIcon />
           </ListItemIcon>
-          <ListItemText primary="Your Profile" />
+          <ListItemText primary="Perfil" />
         </ListItem>
 
         <ListItem button>
           <ListItemIcon>
             <AssignmentTurnedInIcon />
           </ListItemIcon>
-          <ListItemText primary="Your Challenges" />
+          <ListItemText primary="Tus Challenges" />
         </ListItem>
 
         <ListItem button>
           <ListItemIcon>
             <BorderColorIcon />
           </ListItemIcon>
-          <ListItemText primary="Create New Challenge" />
+          <ListItemText primary="Crea un Challenge" />
         </ListItem>
       </List>
 
@@ -52,15 +52,15 @@ export default function DataList() {
 
       <List component="nav" aria-label="secondary mailbox folders">
         <ListItemLink href="/">
-          <ListItemText primary="Dashboard" />
+          <ListItemText primary="Menú Principal" />
         </ListItemLink>
 
         <ListItemLink href="/challenges">
-          <ListItemText primary="Challenges List" />
+          <ListItemText primary="Challenges Activos" />
         </ListItemLink>
 
         <ListItemLink href="#simple-list">
-          <ListItemText primary="Donate" />
+          <ListItemText primary="Haz una Donación" />
         </ListItemLink>
       </List>
     </div>

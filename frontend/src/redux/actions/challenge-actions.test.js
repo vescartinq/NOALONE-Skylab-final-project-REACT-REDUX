@@ -28,6 +28,17 @@ describe('Challenge-actions', () => {
   });
 
   describe('listChallenges', () => {
+    test('should call ChallengeListRequest', async () => {
+      const response = {
+        type: CHALLENGE_LIST_REQUEST,
+      };
+
+      Axios.get.mockImplementationOnce(() => Promise.resolve(response));
+      await store.dispatch(actions.listChallenges());
+
+      expect(store.getActions()[0].type).toEqual(response.type);
+    });
+
     test('should call ChallengeListSuccess', async () => {
       const response = {
         data: [
@@ -45,10 +56,54 @@ describe('Challenge-actions', () => {
       Axios.get.mockImplementationOnce(() => Promise.resolve(response));
       await store.dispatch(actions.listChallenges());
 
-      expect(store.getActions()).toEqual([{
-        type: CHALLENGE_LIST_SUCCESS,
-        payload: response.data,
-      }]);
+      expect(store.getActions()[1].payload).toEqual(response.data);
+    });
+
+    test('should call ChallengeListFail', async () => {
+      const error = {
+        type: 'CHALLENGE_LIST_FAIL',
+      };
+
+      Axios.get.mockImplementationOnce(() => Promise.rejected(error));
+      await store.dispatch(actions.listChallenges());
+
+      expect(store.getActions()[1].type).toEqual(error.type);
+    });
+  });
+
+  describe('detailsChallenges', () => {
+    const challenge = {
+      data: [
+        {
+          _id: '1',
+          challengeItem: 'a',
+        },
+        {
+          _id: '2',
+          challengeItem: 'b',
+        },
+      ],
+    };
+    test('should call ChallengeDetailsRequest', async () => {
+      const response = {
+        type: CHALLENGE_DETAILS_REQUEST,
+      };
+
+      Axios.get.mockImplementationOnce(() => Promise.resolve(response));
+      await store.dispatch(actions.detailsChallenge(challenge.data.id));
+
+      expect(store.getActions()[0].type).toEqual(response.type);
+    });
+
+    test('should call ChallengeDetailsFail', async () => {
+      const error = {
+        type: 'CHALLENGE_DETAILS_FAIL',
+      };
+
+      Axios.get.mockImplementationOnce(() => Promise.rejected(error));
+      await store.dispatch(actions.detailsChallenge(challenge.data.id));
+
+      expect(store.getActions()[1].type).toEqual(error.type);
     });
   });
 });

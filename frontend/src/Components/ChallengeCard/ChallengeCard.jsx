@@ -10,7 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { red, grey } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -21,9 +21,7 @@ import { Button } from '@material-ui/core';
 import CardBoxInfo from '../CardBoxInfo/CardBoxInfo';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 1200,
-  },
+  root: { backgroundColor: grey[300] },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -79,15 +77,13 @@ export default function ChallengeCard({ challenge }) {
             />
             <CardBoxInfo challenge={challenge} />
           </CardContent>
-          <CardContent>
+          <CardContent className="card-mini-and-donate">
             <Typography variant="body2" color="textSecondary" component="p">
               {challenge.miniDescription}
             </Typography>
-
-          </CardContent>
-          <CardContent>
             <Button size="large" type="button" variant="contained" color="primary" fullWidth>DONATE</Button>
           </CardContent>
+
           <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
@@ -109,7 +105,6 @@ export default function ChallengeCard({ challenge }) {
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph>
-                <hr />
                 {' '}
                 <b>Objetivo del Challenge</b>
                 {' '}

@@ -1,0 +1,46 @@
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.logged-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgb(92, 92, 92);
+}
+
+.logged-container_box{
+    padding:3vw;
+    padding-top:0;
+    justify-content: center;
+    color:white;
+    text-align: center;
+}
+
+.logged-container_box>p,
+.logged-container_box>Button
+{
+    font-size: 2vw;
+}
+
+.logged-container_box>Button{
+    box-shadow: 5px 5px rgba(255, 255, 255, 0.158);
+}
+
+.list-challenges_item{
+    text-align:center;
+    font-size: 3vw;
+    margin: 2vw 0;
+}
+
+.list-route{
+    text-align:center;
+    margin: 2vw 0;
+}
+
+.MuiButton-label{
+    color:white;
+    font-weight: bold;
+}
+
