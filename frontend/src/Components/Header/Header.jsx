@@ -21,8 +21,6 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 function Header(props) {
-  // eslint-disable-next-line no-debugger
-  debugger;
   const classes = useStyle();
 
   return (
