@@ -12,6 +12,8 @@ const data = {
       participants: 3,
       days: 30,
       creator: 'Victor',
+      lat: 41.636077760895915,
+      lng: 2.362037440802656,
     },
     {
       title: '500 MANTAS PARA AYUDA A PERSONAS SIN TECHO',
@@ -25,6 +27,8 @@ const data = {
       participants: 25,
       days: 17,
       creator: 'Albert',
+      lat: 41.60826049795665,
+      lng: 2.2872998604405472,
     },
     {
       title: '200 Km en BTT por la diabetes',
@@ -38,6 +42,8 @@ const data = {
       participants: 1,
       days: 29,
       creator: 'Gerard',
+      lat: 41.599842293714985,
+      lng: 2.2914629744953348,
     },
     {
       title: 'EPIS para garantizar el acompañamiento a las personas con autismo',
@@ -50,7 +56,9 @@ const data = {
       collected: 270,
       participants: 72,
       days: 5,
-      creator: 'Agustín',
+      creator: 'Santi',
+      lat: 41.39867113104639,
+      lng: 2.199980997782548,
     },
   ],
 };

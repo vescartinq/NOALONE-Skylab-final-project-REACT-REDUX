@@ -19,9 +19,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './ChallengeCard.css';
 import { Button } from '@material-ui/core';
 import CardBoxInfo from '../CardBoxInfo/CardBoxInfo';
+import Map from '../Map/Map';
+import credentials from '../../credential';
+
+const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credentials.mapsKey}`;
 
 const useStyles = makeStyles((theme) => ({
-  root: { backgroundColor: grey[300] },
+  root: { backgroundColor: grey[200] },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -114,7 +118,13 @@ export default function ChallengeCard({ challenge }) {
               </Typography>
             </CardContent>
             <CardContent>
-              GOOGLE MAPS (INSERT HERE)
+              <Map
+                googleMapURL={mapURL}
+                containerElement={<div style={{ height: '400px' }} />}
+                mapElement={<div style={{ height: '100%' }} />}
+                loadingElement={<p>Cargando...</p>}
+                challenge={challenge}
+              />
             </CardContent>
           </Collapse>
         </Card>
