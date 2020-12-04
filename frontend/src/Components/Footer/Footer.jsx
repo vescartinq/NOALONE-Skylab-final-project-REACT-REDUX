@@ -21,6 +21,7 @@ function Footer() {
                   de colaboración. Si quieres ayudar a cambiar el mundo...
                   {' '}
                   <br />
+                  <br />
                   ¡Ayúdanos con cualquier pequeña acción!
                 </p>
               </div>
@@ -49,27 +50,27 @@ function Footer() {
             <div className="contact-info">
               <div className="contact-links">
                 <p className="contact-links__link" data-test-id="contact-link">
-                  About us
+                  Acerca de nosotros
                 </p>
-                <p className="contact-links__link">Contact</p>
+                <p className="contact-links__link">Contáctanos</p>
                 <p className="contact-links__link">Sitemap</p>
-                <p className="contact-links__link">Privacy policy</p>
+                <p className="contact-links__link">Política de Privacidad</p>
               </div>
             </div>
             <hr />
             <div className="contact-info">
               <div className="contact-links">
                 <p className="contact-links__link" data-test-id="contact-link">
-                  Join us
+                  Únete a nosotros
                 </p>
-                <p className="contact-links__link">People</p>
+                <p className="contact-links__link">Equipo humano</p>
                 <p className="contact-links__link">ONG</p>
               </div>
             </div>
             <hr />
             <div className="contact-info">
               <div className="contact-links">
-                <p className="contact-links__link">¿Needs help?</p>
+                <p className="contact-links__link">¿Necesitas ayuda?</p>
                 <p className="contact-links__link">FAQs</p>
               </div>
             </div>

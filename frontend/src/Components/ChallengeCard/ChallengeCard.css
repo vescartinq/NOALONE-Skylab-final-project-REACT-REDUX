@@ -2,16 +2,15 @@
     margin:2em auto 2em auto ;
     border: 1px solid rgb(182, 182, 182);
     border-radius:5px;
-    box-shadow:7px 7px rgba(190, 190, 190, 0.719);
+    box-shadow:7px 7px 7px rgba(190, 190, 190, 0.719);
     text-align: center;
     justify-content: center;
     width: 80%;
 }
 
 .card-box{
-    border: 1px solid black;
     border-radius:10px;
-    box-shadow: rgba(0, 0, 0, 0.274) 7px 7px;
+    box-shadow: rgba(0, 0, 0, 0.274) 0 0 5px 5px;
     height:25vw;
     width: 30vw;
 }

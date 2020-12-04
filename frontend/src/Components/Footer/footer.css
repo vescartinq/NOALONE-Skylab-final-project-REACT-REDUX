@@ -19,11 +19,22 @@
 	width: 10vw;
 }
 
+.logo-footer>p{
+	margin-top: 0;
+}
+
 .contact-links {
 	display: flex;
 	flex-direction: column;
 	margin: auto;
 	margin-top: 5px;
+}
+
+
+.contact-links>p{
+	width: 100%;
+	text-align: center;
+	margin:0 2px;
 }
 
 .contact-links__link {
@@ -104,10 +115,6 @@
 		grid-template-columns: 70% 5% auto;
 	}
 
-	.footer-upper-container_right{
-		padding: 0 3vw;
-	}
-
 	.contact-info {
 		flex-direction: row;
 		margin-bottom: 15px;
@@ -116,13 +123,6 @@
 	.contact-links {
 		cursor: pointer;
 	}
-
-	.contact-links>p{
-		width: 100%;
-		text-align: center;
-		margin:0 2px;
-	}
-
 	.contact-links__link {
 		left: 0;
 		transform: translate(0);
