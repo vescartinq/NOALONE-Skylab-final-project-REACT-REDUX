@@ -45,19 +45,19 @@ describe('Footer', () => {
 
   it('Should print all text at the page', () => {
     expect(container.textContent).toBe(
-      'About usContactSitemapPrivacy policyCopyright © 2020 - NoAlone Spain SLU - Skylab Coders Academy',
+      'Nuestro objetivo es poder dar a conocer y apoyar causas sociales que necesitan de la colaboración de todos, así como ofrecer una plataforma sencilla y accesible de colaboración. Si quieres ayudar a cambiar el mundo... ¡Ayúdanos con cualquier pequeña acción!Acerca de nosotrosContáctanosSitemapPolítica de PrivacidadÚnete a nosotrosEquipo humanoONG¿Necesitas ayuda?FAQsCopyright © 2020 - NoAlone Spain SLU - Skylab Coders Academy',
     );
   });
 
   it('Should have one contact info', () => {
     expect(
       container.querySelector('[data-test-id="contact-link"]'),
-    ).toHaveTextContent('About us');
+    ).toHaveTextContent('Acerca de nosotros');
   });
 
   it('Should have Link', () => {
     expect(
       container.querySelector('[data-test-id="contact-link"]'),
-    ).toHaveTextContent('About us');
+    ).toHaveTextContent('Acerca de nosotros');
   });
 });

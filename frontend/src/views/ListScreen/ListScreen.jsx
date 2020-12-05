@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 import Slider from 'react-carousel-responsive';
 import 'react-carousel-responsive/dist/styles.css';
 
-import { listChallenges } from '../redux/actions/challenge-actions';
+import { listChallenges } from '../../redux/actions/challenge-actions';
 
-import CardList from '../Components/CardList/CardList';
+import CardList from '../../Components/CardList/CardList';
 import './ListScreen.css';
-import MainSlider from '../Components/MainSlider/MainSlider';
+import MainSlider from '../../Components/MainSlider/MainSlider';
 
 function ListScreen() {
   const dispatch = useDispatch();

@@ -6,7 +6,12 @@ import {
   CHALLENGE_DETAILS_REQUEST,
   CHALLENGE_DETAILS_SUCCESS,
   CHALLENGE_DETAILS_FAIL,
+  USERS_REGISTER_REQUEST,
+  USERS_REGISTER_FAIL,
+  USERS_REGISTER_SUCCESS,
 } from './actionTypes';
+
+import { auth, firebase } from '../../Firebase/firebase';
 
 export const listChallenges = () => async (dispatch) => {
   dispatch({
@@ -33,5 +38,26 @@ export const detailsChallenge = (challengeId) => async (dispatch) => {
           ? error.response.data.message
           : error.message,
     });
+  }
+};
+
+export const userRegister = () => async (dispatch) => {
+  dispatch({ type: USERS_REGISTER_REQUEST });
+  try {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const data = await auth.signInWithPopup(provider);
+    dispatch({
+      type: USERS_REGISTER_SUCCESS,
+      payload: {
+        uid: data.user.uid,
+        email: data.user.email,
+      },
+    });
+    localStorage.setItem('user', JSON.stringify({
+      uid: data.user.uid,
+      email: data.user.email,
+    }));
+  } catch (error) {
+    dispatch({ type: USERS_REGISTER_FAIL, payload: error.message });
   }
 };

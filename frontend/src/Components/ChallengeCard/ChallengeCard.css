@@ -1,18 +1,16 @@
 .card-item{
-    margin:auto auto 2em auto ;
+    margin:2em auto 2em auto ;
     border: 1px solid rgb(182, 182, 182);
     border-radius:5px;
-    box-shadow:3px 3px rgba(190, 190, 190, 0.719);
+    box-shadow:7px 7px 7px rgba(190, 190, 190, 0.719);
     text-align: center;
     justify-content: center;
     width: 80%;
 }
 
 .card-box{
-    padding: 1em;
-    border: 3px solid #F57C00;
     border-radius:10px;
-    box-shadow: rgba(0, 0, 0, 0.274) 7px 7px;
+    box-shadow: rgba(0, 0, 0, 0.274) 0 0 5px 5px;
     height:25vw;
     width: 30vw;
 }
@@ -25,15 +23,23 @@
     margin:auto;
 }
 
+.card-mini-and-donate{
+    display:grid;
+    grid-template-columns: auto 25vw;
+    grid-gap: 1em
+
+}
+
 .card-info_section > p{
     padding: 5px;
     text-align: center;
+    
 }
 
 .card-info_box{
     display:grid;
     grid-template-columns: auto auto;
-    grid-gap:10px;
+    grid-gap:5px;
     text-align: center;
     border-radius:15px;
     height:90%;
@@ -48,9 +54,21 @@
 /* DETAIL IMAGE */
 #card-info_image{
     border-radius:10px;
-    height:5vw;
+    height:4vw;
     width: 35vw;
     margin:0 auto;
 }
 
 
+@media screen and (max-width: 599px) {
+	.card-info_section{
+    display:flex;
+    flex-direction: column;
+    }
+
+    .card-mini-and-donate{
+        display:flex;
+        flex-direction: column;
+        
+    }
+}

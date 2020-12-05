@@ -1,18 +1,20 @@
 .card-info_item{
-    margin:auto;
+    margin: 2vw auto;
 }
 
 .card-info_item-title{
-    font-size:80%;
+    font-size:2vw;
     color: rgb(158, 158, 158);
     font-weight: 700;
 }
 
 .card-info_item-detail{
-    font-size: 100%;
-    font-weight: 700;
+    font-size: 2vw;
+    font-weight: bold;
 }
 
 #collected{
+    font-size:4vw;
     color:red;
+    font-weight: 1000;
 }

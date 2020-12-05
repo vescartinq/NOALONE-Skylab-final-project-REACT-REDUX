@@ -5,14 +5,17 @@ import {
 import { Hidden, makeStyles } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 
-import Header from './Components/Header/Header';
 import './Components/Header/Header.css';
-import DrawerBox from './Components/DrawerBox';
-import Footer from './Components/Footer/Footer';
 import './Components/Footer/footer.css';
-import DetailScreen from './views/DetailScreen';
-import ListScreen from './views/ListScreen';
-import DashboardScreen from './views/DashboardScreen';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
+import DrawerBox from './Components/DrawerBox/DrawerBox';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import DashboardScreen from './views/DashboardScreen/DashboardScreen';
+import ListScreen from './views/ListScreen/ListScreen';
+import DetailScreen from './views/DetailScreen/DetailScreen';
+import LoginScreen from './views/LoginScreen/LoginScreen';
 
 import theme from './themeConfig';
 
@@ -24,7 +27,7 @@ const styles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(3),
+    padding: theme.spacing(0),
   },
 }));
 
@@ -49,8 +52,10 @@ function App() {
           <div className={classes.content}>
             <div className={classes.toolbar} />
           </div>
-          <Route path="/challenges/:challengeId" exact component={DetailScreen} />
-          <Route path="/challenges" exact component={ListScreen} />
+
+          <Route path="/login" component={LoginScreen} />
+          <Route path="/challenges/:challengeId" component={DetailScreen} />
+          <Route path="/challenges" component={ListScreen} />
           <Route path="/" exact component={DashboardScreen} />
 
           <Footer />

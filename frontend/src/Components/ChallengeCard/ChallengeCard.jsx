@@ -10,7 +10,7 @@ import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
+import { red, grey } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -19,11 +19,13 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import './ChallengeCard.css';
 import { Button } from '@material-ui/core';
 import CardBoxInfo from '../CardBoxInfo/CardBoxInfo';
+import Map from '../Map/Map';
+import credentials from '../../Private/credential';
+
+const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credentials.mapsKey}`;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 1200,
-  },
+  root: { backgroundColor: grey[200] },
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
@@ -79,15 +81,13 @@ export default function ChallengeCard({ challenge }) {
             />
             <CardBoxInfo challenge={challenge} />
           </CardContent>
-          <CardContent>
+          <CardContent className="card-mini-and-donate">
             <Typography variant="body2" color="textSecondary" component="p">
               {challenge.miniDescription}
             </Typography>
-
-          </CardContent>
-          <CardContent>
             <Button size="large" type="button" variant="contained" color="primary" fullWidth>DONATE</Button>
           </CardContent>
+
           <CardActions disableSpacing>
             <IconButton aria-label="add to favorites">
               <FavoriteIcon />
@@ -109,7 +109,6 @@ export default function ChallengeCard({ challenge }) {
           <Collapse in={expanded} timeout="auto" unmountOnExit>
             <CardContent>
               <Typography paragraph>
-                <hr />
                 {' '}
                 <b>Objetivo del Challenge</b>
                 {' '}
@@ -119,7 +118,13 @@ export default function ChallengeCard({ challenge }) {
               </Typography>
             </CardContent>
             <CardContent>
-              GOOGLE MAPS (INSERT HERE)
+              <Map
+                googleMapURL={mapURL}
+                containerElement={<div style={{ height: '400px' }} />}
+                mapElement={<div style={{ height: '100%' }} />}
+                loadingElement={<p>Cargando...</p>}
+                challenge={challenge}
+              />
             </CardContent>
           </Collapse>
         </Card>

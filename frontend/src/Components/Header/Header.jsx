@@ -28,6 +28,7 @@ function Header(props) {
     <AppBar className={classes.appbar}>
       <Toolbar>
         <IconButton
+          id="test-btn"
           color="inherit"
           arial-label="menu"
           className={classes.menuButton}
@@ -44,9 +45,11 @@ function Header(props) {
         </IconButton>
 
         <Typography variant="h1" color="initial" className={classes.title} />
-        <Button variant="text" color="inherit">
-          LOGIN
-        </Button>
+        <div className="header-btn">
+          <Button variant="contained" color="primary">
+            <Link to="/login" className="text-link">LOGIN</Link>
+          </Button>
+        </div>
       </Toolbar>
     </AppBar>
   );
