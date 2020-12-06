@@ -47,7 +47,7 @@ function Header(props) {
           <MenuIcon />
         </IconButton>
         <IconButton className="logo-btn" color="inherit">
-          <Link to="/">
+          <Link to="/" exact>
             <div>
               <img src="https://trello-attachments.s3.amazonaws.com/5f7afb80257ef0330839c5e5/5fbbd4196bb5e92529d09cb2/ac996a4073e723f5585ccadc0ab58085/Logo_transparente1.png" height="75px" width="200px" alt="logo" />
             </div>

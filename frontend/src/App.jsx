@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Provider } from 'react-redux';
 import {
-  BrowserRouter, Route,
+  BrowserRouter, Route, Redirect, Switch,
 } from 'react-router-dom';
 import { Hidden, makeStyles } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -19,6 +19,7 @@ import DetailScreen from './views/DetailScreen/DetailScreen';
 import LoginScreen from './views/LoginScreen/LoginScreen';
 
 import generateStore from './redux/Store';
+import { auth } from './Firebase/firebase';
 
 import theme from './themeConfig';
 
@@ -42,7 +43,42 @@ function App() {
   const openAction = () => {
     setOpen(!open);
   };
-  return (
+
+  const [firebaseUser, setFirebaseUser] = useState(false);
+
+  useEffect(() => {
+    const fetchUser = () => {
+      auth.onAuthStateChanged((user) => {
+        // eslint-disable-next-line no-console
+        console.log(user);
+        if (user) {
+          setFirebaseUser(user);
+        } else {
+          setFirebaseUser(null);
+        }
+      });
+    };
+    fetchUser();
+  }, []);
+
+  const PrivateRoute = ({ component, path, ...rest }) => {
+    if (localStorage.getItem('user')) {
+      const userStorage = JSON.parse(localStorage.getItem('user'));
+      if (userStorage.uid === firebaseUser.uid) {
+        // eslint-disable-next-line no-console
+        console.log('usuario logeado');
+        return <Route component={component} path={path} {...rest} />;
+      }
+      // eslint-disable-next-line no-console
+      console.log('usuario no existe');
+      return <Redirect to="/login" {...rest} />;
+    }
+    // eslint-disable-next-line no-console
+    console.log('no logeado, volvemos a login');
+    return <Redirect to="/login" {...rest} />;
+  };
+
+  return firebaseUser !== false ? (
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
@@ -57,17 +93,17 @@ function App() {
           <div className={classes.content}>
             <div className={classes.toolbar} />
           </div>
-
-          <Route path="/login" component={LoginScreen} />
-          <Route path="/challenges/:challengeId" component={DetailScreen} />
-          <Route path="/challenges" component={ListScreen} />
-          <Route path="/" exact component={DashboardScreen} />
-
+          <Switch>
+            <Route path="/login" component={LoginScreen} />
+            <Route path="/challenges/:challengeId" component={DetailScreen} />
+            <Route path="/challenges" component={ListScreen} />
+            <PrivateRoute path="/" exact component={DashboardScreen} />
+          </Switch>
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
     </Provider>
-  );
+  ) : (<div>CARGANDO...</div>);
 }
 
 export default App;
