@@ -20,7 +20,9 @@ import './ChallengeCard.css';
 import { Button } from '@material-ui/core';
 import CardBoxInfo from '../CardBoxInfo/CardBoxInfo';
 import Map from '../Map/Map';
-import credentials from '../../credential';
+
+import credentials from '../../Private/credential';
+
 
 const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credentials.mapsKey}`;
 

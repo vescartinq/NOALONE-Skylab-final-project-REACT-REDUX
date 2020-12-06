@@ -1,6 +1,9 @@
+/* Header */
 .MuiButtonBase-root.MuiIconButton-root.logo-btn.MuiIconButton-colorInherit{
     height: 60px;
 }
+
+/* DrawerMenu */
 
 .MuiIconButton-label{
     color: white;
@@ -8,4 +11,15 @@
 
 .logo-btn{
     top: 0.5vw;
+
+}
+
+.text-link {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+.header-btn>Button{
+    margin-left: 10px;
+
 }
