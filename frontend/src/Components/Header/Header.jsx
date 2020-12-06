@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   withRouter,
   Link,
@@ -27,11 +27,15 @@ const useStyle = makeStyles((theme) => ({
 
 function Header(props) {
   const classes = useStyle();
+
   const dispatch = useDispatch();
+
   const signOut = () => {
     dispatch(signOutUser());
     props.history.push('/login');
   };
+
+  const active = useSelector((store) => store.user.active);
 
   return (
 
@@ -56,12 +60,18 @@ function Header(props) {
 
         <Typography variant="h1" color="initial" className={classes.title} />
         <div className="header-btn">
-          <Button variant="contained" color="primary">
-            <Link to="/login" className="text-link">LOGIN</Link>
-          </Button>
-          <Button variant="contained" color="primary">
-            <Link to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
-          </Button>
+
+          {
+            active ? (
+              <Button variant="contained" color="primary">
+                <Link to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
+              </Button>
+            ) : (
+              <Button variant="contained" color="primary">
+                <Link to="/login" className="text-link">LOG IN</Link>
+              </Button>
+            )
+          }
         </div>
       </Toolbar>
     </AppBar>

@@ -79,8 +79,8 @@ export const readActiveUser = () => (dispatch) => {
 
 export const signOutUser = () => (dispatch) => {
   auth.signOut();
-  localStorage.removeItem('user');
   dispatch({
     type: SIGN_OUT_SUCCESS,
   });
+  localStorage.removeItem('user');
 };
