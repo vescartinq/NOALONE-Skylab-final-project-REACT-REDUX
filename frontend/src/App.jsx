@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Provider } from 'react-redux';
 import {
   BrowserRouter, Route,
 } from 'react-router-dom';
@@ -17,7 +18,11 @@ import ListScreen from './views/ListScreen/ListScreen';
 import DetailScreen from './views/DetailScreen/DetailScreen';
 import LoginScreen from './views/LoginScreen/LoginScreen';
 
+import generateStore from './redux/Store';
+
 import theme from './themeConfig';
+
+const store = generateStore();
 
 const styles = makeStyles((theme) => ({
   root: {
@@ -38,7 +43,7 @@ function App() {
     setOpen(!open);
   };
   return (
-    <>
+    <Provider store={store}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
           <Header openAction={openAction} />
@@ -61,7 +66,7 @@ function App() {
           <Footer />
         </BrowserRouter>
       </ThemeProvider>
-    </>
+    </Provider>
   );
 }
 

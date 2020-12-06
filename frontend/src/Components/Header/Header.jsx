@@ -1,11 +1,16 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import {
+  withRouter,
   Link,
 } from 'react-router-dom';
+
 import {
   AppBar, Toolbar, Typography, Button, makeStyles, IconButton,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+
+import { signOutUser } from '../../redux/actions/challenge-actions';
 
 import './Header.css';
 
@@ -22,6 +27,11 @@ const useStyle = makeStyles((theme) => ({
 
 function Header(props) {
   const classes = useStyle();
+  const dispatch = useDispatch();
+  const signOut = () => {
+    dispatch(signOutUser());
+    props.history.push('/login');
+  };
 
   return (
 
@@ -49,10 +59,13 @@ function Header(props) {
           <Button variant="contained" color="primary">
             <Link to="/login" className="text-link">LOGIN</Link>
           </Button>
+          <Button variant="contained" color="primary">
+            <Link to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
+          </Button>
         </div>
       </Toolbar>
     </AppBar>
   );
 }
 
-export default Header;
+export default withRouter(Header);

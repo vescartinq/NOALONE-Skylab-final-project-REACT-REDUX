@@ -9,6 +9,8 @@ import {
   userReducer,
 } from './reducers/challengeReducer';
 
+import { readActiveUser } from './actions/challenge-actions';
+
 const initialState = {};
 
 const reducer = combineReducers({
@@ -17,10 +19,13 @@ const reducer = combineReducers({
   user: userReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  reducer,
-  initialState,
-  composeEnhancer(applyMiddleware(thunk)),
-);
 
-export default store;
+export default function generateStore() {
+  const store = createStore(
+    reducer,
+    initialState,
+    composeEnhancer(applyMiddleware(thunk)),
+  );
+  readActiveUser()(store.dispatch);
+  return store;
+}
