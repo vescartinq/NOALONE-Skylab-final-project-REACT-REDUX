@@ -7,6 +7,7 @@ import { Hidden, makeStyles } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 
 import './Components/Header/Header.css';
+
 import './Components/Footer/footer.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
