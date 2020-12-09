@@ -7,7 +7,7 @@ import './MainSlider.css';
 function MainSlider() {
   return (
     <div className="mainSlider-container">
-      <Slider slidesToShow={1}>
+      <Slider slidesToShow={1} autoplay autoplaySpeed={2000} speed={2000}>
         <div className="slider-item">
           <img src="https://images.pexels.com/photos/2456327/pexels-photo-2456327.jpeg?cs=srgb&dl=pexels-andreas-wohlfahrt-2456327.jpg&fm=jpg" alt="children" />
           <p>¿Necesitas recaudar fondos para tu causa?</p>

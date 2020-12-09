@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 import './CardList.css';
@@ -12,7 +11,7 @@ function CardList(props) {
         <img src={challenge?.image} alt="challenge-img" className="item-image" />
       </div>
       <div className="item-join">
-        <button type="button" className="item-btn">JOIN</button>
+        <button type="button" className="item-btn">UNIRSE</button>
         <div className="item-target">
           {challenge?.target}
           {' '}

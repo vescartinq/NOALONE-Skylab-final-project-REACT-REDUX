@@ -10,6 +10,7 @@ function challengeController(challengeSchema) {
   function postChallengesMethod(req, res) {
     const challenge = req.body;
     const createCallBack = (error, newChallenge) => {
+      // eslint-disable-next-line no-unused-expressions
       error ? res.send(error) : res.send(newChallenge);
     };
     challengeSchema.create(challenge, createCallBack);

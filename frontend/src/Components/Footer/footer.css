@@ -1,4 +1,5 @@
 .footer {
+	display: flex;
 	background-color: #2b2b2b;
 	text-align: center;
 	color: white;
@@ -6,31 +7,38 @@
 	bottom: 0;
 }
 
-.contact-info {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-top: 5px;
+.footer-upper-container{
+	margin: auto;
+}
+
+.footer-upper-container_right>{
+	margin:auto;
+}
+
+.logo-footer>img{
+	width: 10vw;
+}
+
+.logo-footer>p{
+	margin-top: 0;
 }
 
 .contact-links {
 	display: flex;
 	flex-direction: column;
+	margin: auto;
+	margin-top: 5px;
 }
 
-.noAlone-logo {
-	width: 120px;
-	margin-bottom: 13px;
-	border: 1px solid rgb(248, 248, 248);
-	border-radius: 5px;
-	box-shadow: 1px 1px 3px#F57C00;
-}
 
-.noAlone-logo-link {
-	width: fit-content;
+.contact-links>p{
+	width: 100%;
+	text-align: center;
+	margin:0 2px;
 }
 
 .contact-links__link {
+
 	width: fit-content;
 	cursor: pointer;
 	position: relative;
@@ -49,10 +57,9 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
-	width: 50vh;
 	cursor: pointer;
-	border-top: 1px solid rgba(196, 88, 88, 0.591);
-	border-bottom: 1px solid rgba(196, 88, 88, 0.591);
+	border-top: 1px solid #F57C00;
+	border-bottom: 1px solid #F57C00;
 	padding: 11px 0;
 	margin: 20px 0;
 	color:white;
@@ -62,6 +69,7 @@
 	font-size: 35px;
 	transition: 0.15s color ease-out;
 	line-height: 30.63px;
+	justify-items: center;
 }
 
 .GooglePlus-icon:hover {
@@ -89,49 +97,41 @@
 }
 
 .footer__copyright {
+	background-color: #2b2b2b;
+	color:white;
+	text-align: center;
 	font-size: 16px;
 	line-height: 18px;
+	padding:1vw
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
 	.noAlone-logo {
 		width: 180px;
 	}
 
+	.footer-upper-container{
+		display:grid;
+		grid-template-columns: 80% 3% auto;
+	}
+
+	hr{
+		background-color: white !important;
+	}
+
 	.contact-info {
 		flex-direction: row;
-		justify-content: center;
 		margin-bottom: 15px;
 	}
 
 	.contact-links {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: center;
 		cursor: pointer;
-		margin-right: 5%;
 	}
-
 	.contact-links__link {
 		left: 0;
 		transform: translate(0);
-		font-size: 20px;
+		font-size: 15px;
 		white-space: nowrap;
-	}
-
-	.contact-links__link:not(:last-child) {
-		margin-right: 20px;
-	}
-
-	.social-networks {
-		display: flex;
-		justify-content: center;
-		align-content: center;
-		flex-wrap: wrap;
-		margin-left: 5%;
-		border: none;
-		width: fit-content;
 	}
 
 	.social-networks__network {

@@ -1,7 +1,7 @@
 import { unstable_createMuiStrictModeTheme as createMuiTheme } from '@material-ui/core/styles';
 import orange from '@material-ui/core/colors/orange';
 
-const theme = createMuiTheme({
+const themeConfig = createMuiTheme({
   palette: {
     primary: {
       main: orange[700],
@@ -9,4 +9,4 @@ const theme = createMuiTheme({
   },
 });
 
-export default theme;
+export default themeConfig;

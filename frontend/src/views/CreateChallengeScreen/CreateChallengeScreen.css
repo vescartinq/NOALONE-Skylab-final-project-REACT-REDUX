@@ -1,0 +1,30 @@
+.form-builder{
+	padding: 5vw;
+}
+
+form{
+	background-color: rgba(0, 0, 0, 0.692);
+	padding: 4vw;
+	border-radius: 15px;
+	box-shadow: #F57C00 0 0 10px 5px;
+}
+
+.form-label{
+	color:white;
+	font-weight: bold;
+	font-size: larger;
+}
+
+.newProject__section {
+	max-width: 400px;
+	margin: auto;
+	min-height: 70vh;
+}
+
+.text-area {
+	resize: none;
+}
+h1 {
+	text-align: center;
+	color: gray;
+}

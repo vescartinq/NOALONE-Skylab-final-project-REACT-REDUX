@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ListScreen from './ListScreen';
+import DetailScreen from './DetailScreen';
 
-jest.mock('../redux/actions/challenge-actions.js');
+jest.mock('../../redux/actions/challenge-actions.js');
 const buildStore = configureStore([thunk]);
 
-describe('Challenge', () => {
+describe('DetailScreen', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -23,9 +23,9 @@ describe('Challenge', () => {
     );
   };
 
-  test('should waiting loaded data to render the compo', () => {
+  test('should be rended', () => {
     const initialState = {
-      challengeList: {
+      challengeDetails: {
         loading: true,
         error: false,
         projects: [{
@@ -35,13 +35,29 @@ describe('Challenge', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ListScreen />, { wrapper });
+    render(<DetailScreen />, { wrapper });
+    expect(<DetailScreen />).toBeDefined();
+  });
+
+  test('should waiting loaded data to render the compo', () => {
+    const initialState = {
+      challengeDetails: {
+        loading: true,
+        error: false,
+        projects: [{
+          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+        }],
+      },
+    };
+
+    wrapper = wrapperFactory(initialState);
+    render(<DetailScreen />, { wrapper });
     expect(document.querySelector('.loading').textContent).toBe('LOADING');
   });
 
   test('should waiting loaded data to render the compo', () => {
     const initialState = {
-      challengeList: {
+      challengeDetails: {
         loading: false,
         error: true,
         projects: [{
@@ -51,14 +67,14 @@ describe('Challenge', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ListScreen />, { wrapper });
+    render(<DetailScreen />, { wrapper });
     expect(document.querySelector('.error').textContent).toBe('ERROR');
   });
 
-  test('should render the compo', () => {
+  test('should rended ChallengeCard', () => {
     const initialState = {
-      challengeList: {
-        loading: false,
+      challengeDetails: {
+        loading: true,
         error: false,
         projects: [{
           _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
@@ -67,7 +83,7 @@ describe('Challenge', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ListScreen />, { wrapper });
-    expect(document.querySelector('list-challenges_item').textContent).toBe('Challenges a punto de terminar');
+    render(<DetailScreen />, { wrapper });
+    expect(document.querySelector('.ChallengeCard-item')).not.toBeUndefined();
   });
 });
