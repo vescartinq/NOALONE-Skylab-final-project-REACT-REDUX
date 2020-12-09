@@ -53,7 +53,7 @@ function Header(props) {
           <IconButton className="logo-btn" color="inherit">
             <Link to="/" exact>
               <div>
-                <img src="https://trello-attachments.s3.amazonaws.com/5f7afb80257ef0330839c5e5/5fbbd4196bb5e92529d09cb2/ac996a4073e723f5585ccadc0ab58085/Logo_transparente1.png" height="75px" width="200px" alt="logo" />
+                <img src="https://trello-attachments.s3.amazonaws.com/5f7afb80257ef0330839c5e5/5fbbd4196bb5e92529d09cb2/f2a20b3bfeda6b6a60366509c71cefdb/Logo-colores.png" height="75px" width="200px" alt="logo" />
               </div>
             </Link>
           </IconButton>
@@ -64,18 +64,18 @@ function Header(props) {
             {
             active ? (
               <>
-                <Button variant="contained" color="primary">
+                <Button color="primary">
                   <Link to="/admin" className="text-link">ADMIN</Link>
                 </Button>
-                <Button variant="contained" color="primary">
+                <Button color="primary">
                   <Link to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
                 </Button>
-                <Button variant="contained" color="secondary">
+                <Button className="only-btn" variant="contained" color="secondary">
                   <Link to="/create" className="text-link">CREAR RETO</Link>
                 </Button>
               </>
             ) : (
-              <Button variant="contained" color="primary">
+              <Button className="only-btn" color="primary">
                 <Link to="/login" className="text-link">LOG IN</Link>
               </Button>
             )

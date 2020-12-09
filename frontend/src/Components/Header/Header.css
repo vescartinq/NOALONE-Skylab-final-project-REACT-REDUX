@@ -19,4 +19,11 @@
 
 .header-btn>Button{
     margin-left: 10px;
+    padding-right: 10px;
+    border-right: white 2px solid;
+    border-radius: 0;
+}
+
+.only-btn{
+    border-right: none !important;
 }

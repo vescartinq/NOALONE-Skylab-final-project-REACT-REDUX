@@ -102,6 +102,7 @@ function CreateChallengeScreen() {
               },
             ));
           }}
+          href="/challenges"
         >
           CREAR RETO
         </Button>

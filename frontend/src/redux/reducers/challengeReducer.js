@@ -1,19 +1,4 @@
-const {
-  CHALLENGE_LIST_REQUEST,
-  CHALLENGE_LIST_SUCCESS,
-  CHALLENGE_LIST_FAIL,
-  CHALLENGE_DETAILS_REQUEST,
-  CHALLENGE_DETAILS_SUCCESS,
-  CHALLENGE_DETAILS_FAIL,
-  USERS_REGISTER_REQUEST,
-  USERS_REGISTER_SUCCESS,
-  USERS_REGISTER_FAIL,
-  SIGN_OUT_SUCCESS,
-  CHALLENGE_CREATE_REQUEST,
-  CHALLENGE_CREATE_SUCCESS,
-  CHALLENGE_CREATE_FAIL,
-  CHALLENGE_CREATE_RESET,
-} = require('../actions/actionTypes');
+import actionTypes from '../actions/actionTypes';
 
 const initialState = { loading: false, active: false };
 
@@ -22,11 +7,11 @@ export const challengeListReducer = (
   action,
 ) => {
   switch (action.type) {
-    case CHALLENGE_LIST_REQUEST:
+    case actionTypes.CHALLENGE_LIST_REQUEST:
       return { loading: true };
-    case CHALLENGE_LIST_SUCCESS:
+    case actionTypes.CHALLENGE_LIST_SUCCESS:
       return { loading: false, challenges: action.payload };
-    case CHALLENGE_LIST_FAIL:
+    case actionTypes.CHALLENGE_LIST_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -35,11 +20,11 @@ export const challengeListReducer = (
 
 export const challengeDetailsReducer = (state = { loading: true }, action) => {
   switch (action.type) {
-    case CHALLENGE_DETAILS_REQUEST:
+    case actionTypes.CHALLENGE_DETAILS_REQUEST:
       return { loading: true };
-    case CHALLENGE_DETAILS_SUCCESS:
+    case actionTypes.CHALLENGE_DETAILS_SUCCESS:
       return { loading: false, challenge: action.payload };
-    case CHALLENGE_DETAILS_FAIL:
+    case actionTypes.CHALLENGE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -48,15 +33,15 @@ export const challengeDetailsReducer = (state = { loading: true }, action) => {
 
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case USERS_REGISTER_REQUEST:
+    case actionTypes.USERS_REGISTER_REQUEST:
       return { ...state, loading: true };
-    case USERS_REGISTER_SUCCESS:
+    case actionTypes.USERS_REGISTER_SUCCESS:
       return {
         ...state, loading: false, user: action.payload, active: true,
       };
-    case USERS_REGISTER_FAIL:
+    case actionTypes.USERS_REGISTER_FAIL:
       return { ...initialState };
-    case SIGN_OUT_SUCCESS:
+    case actionTypes.SIGN_OUT_SUCCESS:
       return { ...initialState };
     default:
       return { ...state };
@@ -65,18 +50,31 @@ export const userReducer = (state = initialState, action) => {
 
 export const challengeCreateReducer = (state = {}, action) => {
   switch (action.type) {
-    case CHALLENGE_CREATE_REQUEST:
+    case actionTypes.CHALLENGE_CREATE_REQUEST:
       return { loading: true };
-    case CHALLENGE_CREATE_SUCCESS:
+    case actionTypes.CHALLENGE_CREATE_SUCCESS:
       return {
         loading: false,
         success: true,
         challenge: [...state.challenges, action.newChallenge],
       };
-    case CHALLENGE_CREATE_FAIL:
+    case actionTypes.CHALLENGE_CREATE_FAIL:
       return { loading: false, error: action.payload };
-    case CHALLENGE_CREATE_RESET:
+    case actionTypes.CHALLENGE_CREATE_RESET:
       return {};
+    default:
+      return state;
+  }
+};
+
+export const deleteChallengeReducer = (state = { loading: true }, action) => {
+  switch (action.type) {
+    case actionTypes.CHALLENGE_DELETE_REQUEST:
+      return { loading: true };
+    case actionTypes.CHALLENGE_DELETE_SUCCESS:
+      return { loading: false, challenge: action.payload };
+    case actionTypes.CHALLENGE_DELETE_FAIL:
+      return { loading: false, error: action.payload };
     default:
       return state;
   }

@@ -26,10 +26,6 @@ const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credential
 
 const useStyles = makeStyles((theme) => ({
   root: { backgroundColor: grey[200] },
-  media: {
-    height: 0,
-    paddingTop: '56.25%', // 16:9
-  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -47,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ChallengeCard({ challenge }) {
   const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(true);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -73,13 +69,12 @@ export default function ChallengeCard({ challenge }) {
           />
           <CardContent className="card-info_section">
             <CardMedia
-              id="card-info_image"
               alt="item image"
-              className={classes.media}
+              className="card-box_image"
               image={challenge.image}
               title={challenge.category}
             />
-            <CardBoxInfo challenge={challenge} />
+            <CardBoxInfo className="card-box_info" challenge={challenge} />
           </CardContent>
           <CardContent className="card-mini-and-donate">
             <Typography variant="body2" color="textSecondary" component="p">

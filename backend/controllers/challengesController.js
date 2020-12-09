@@ -1,22 +1,45 @@
-function challengeController(challengeSchema) {
+function challengesController(challengeSchema) {
   function getChallengesMethod(req, res) {
     const query = {};
-    const getCallBack = (getError, challenges) => (
-      getError ? res.send(getError) : res.send(challenges)
+    const getCallBack = (error, challenges) => (
+      error ? res.send(error) : res.send(challenges)
     );
-    challengeSchema.find(query).exec(getCallBack);
+    challengeSchema.find(query, getCallBack);
   }
 
   function postChallengesMethod(req, res) {
     const challenge = req.body;
     const createCallBack = (error, newChallenge) => {
       // eslint-disable-next-line no-unused-expressions
-      error ? res.send(error) : res.send(newChallenge);
+      error ? res.send(error) : res.json(newChallenge);
     };
     challengeSchema.create(challenge, createCallBack);
   }
 
-  return { getChallengesMethod, postChallengesMethod };
+  function putChallengeMethod(req, res) {
+    const challenge = req.body.id;
+    const update = req.body;
+    function callback(error, updatedChallenge) {
+      return error ? res.send(error) : res.send(updatedChallenge);
+    }
+
+    challengeSchema.findByIdAndUpdate(
+      challenge, update, { new: true }, callback,
+    );
+  }
+
+  function deleteChallengeMethod(req, res) {
+    const { _id } = req.body;
+    function callback(error, deletedChallenge) {
+      return error ? res.send(error) : res.json(deletedChallenge);
+    }
+
+    challengeSchema.findByIdAndDelete(_id, callback);
+  }
+
+  return {
+    getChallengesMethod, postChallengesMethod, putChallengeMethod, deleteChallengeMethod,
+  };
 }
 
-module.exports = challengeController;
+module.exports = challengesController;

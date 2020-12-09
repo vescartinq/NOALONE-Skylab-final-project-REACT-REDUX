@@ -30,14 +30,9 @@ export default function DataList() {
           <ListItemIcon>
             <AccountCircleIcon />
           </ListItemIcon>
-          <ListItemText primary="Perfil" />
-        </ListItem>
-
-        <ListItem button>
-          <ListItemIcon>
-            <AssignmentTurnedInIcon />
-          </ListItemIcon>
-          <ListItemText primary="Tus Retos" />
+          <ListItemLink href="/">
+            <ListItemText primary="Perfil" />
+          </ListItemLink>
         </ListItem>
 
         <ListItem button>
@@ -49,6 +44,15 @@ export default function DataList() {
           </ListItemLink>
         </ListItem>
       </List>
+
+      <ListItem button>
+        <ListItemIcon>
+          <AssignmentTurnedInIcon />
+        </ListItemIcon>
+        <ListItemLink href="/admin">
+          <ListItemText primary="Tus Retos" />
+        </ListItemLink>
+      </ListItem>
 
       <Divider />
 

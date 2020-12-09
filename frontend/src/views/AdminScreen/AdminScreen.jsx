@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Button from 'react-bootstrap/Button';
 import './AdminScreen.css';
-import { listChallenges } from '../../redux/actions/challenge-actions';
+import { listChallenges, deleteChallenge } from '../../redux/actions/challenge-actions';
 
 function AdminScreen() {
   const challengeList = useSelector((state) => state.challengeList);
@@ -36,7 +36,7 @@ function AdminScreen() {
                     </div>
                     <div className="item-btns">
                       <Button className="admin-btn" variant="secondary" type="button">Editar</Button>
-                      <Button className="admin-btn" variant="danger" type="button">Eliminar</Button>
+                      <Button className="admin-btn" variant="danger" type="button" onClick={() => { dispatch(deleteChallenge(challenge)); }} href="/admin">Eliminar</Button>
                     </div>
                   </div>
                 </li>
