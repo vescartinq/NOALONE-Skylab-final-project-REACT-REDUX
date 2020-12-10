@@ -2,9 +2,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Button from 'react-bootstrap/Button';
 import './AdminScreen.css';
-import { listChallenges, deleteChallenge } from '../../redux/actions/challenge-actions';
+import { listChallenges } from '../../redux/actions/challenge-actions';
+
+import TableItem from '../../Components/MaterialTable/TableItem';
 
 function AdminScreen() {
   const challengeList = useSelector((state) => state.challengeList);
@@ -26,22 +27,7 @@ function AdminScreen() {
           <div className="error">ERROR, CHALLENGE NOT CREATED</div>
         ) : (
           <div className="admin-list">
-            <ul>
-              {challenges.map((challenge) => (
-                <li key={challenge._id}>
-                  <div className="admin-list_item">
-                    <div className="item-title">
-                      {' '}
-                      {challenge.title}
-                    </div>
-                    <div className="item-btns">
-                      <Button className="admin-btn" variant="secondary" type="button">Editar</Button>
-                      <Button className="admin-btn" variant="danger" type="button" onClick={() => { dispatch(deleteChallenge(challenge)); }} href="/admin">Eliminar</Button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <TableItem challenges={challenges} />
           </div>
         )}
 

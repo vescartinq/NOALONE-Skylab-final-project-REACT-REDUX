@@ -15,16 +15,12 @@
     width: 30vw;
 }
 
-/* DETAIL IMAGE */
-.card-box_image{
-    border-radius:10px;
-    height:30vw;
-    width: 100%;
-    margin:0 auto;
-}
-
-.card-box_info{
-    position: absolute;
+.card-info_section{
+    display:grid;
+    grid-template-columns: 50% 50%;
+    grid-gap:0.5em;
+    align-items: center;
+    margin:auto;
 }
 
 .card-mini-and-donate{
@@ -55,7 +51,13 @@
     margin:auto;
 }
 
-
+/* DETAIL IMAGE */
+#card-info_image{
+    border-radius:10px;
+    height:10vw;
+    width: 35vw;
+    margin:0 auto;
+}
 
 
 @media screen and (max-width: 599px) {

@@ -91,6 +91,7 @@ export const createChallenge = (newChallenge) => async (dispatch) => {
 };
 
 export const deleteChallenge = (challenge) => async (dispatch) => {
+  debugger;
   dispatch({ type: actionTypes.CHALLENGE_DELETE_REQUEST });
   try {
     const { data: { _id } } = await Axios.delete(serverChallengesUrl, { data: challenge });

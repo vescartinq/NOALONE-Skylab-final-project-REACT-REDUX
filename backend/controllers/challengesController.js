@@ -17,7 +17,7 @@ function challengesController(challengeSchema) {
   }
 
   function putChallengeMethod(req, res) {
-    const challenge = req.body.id;
+    const challenge = req.body._id;
     const update = req.body;
     function callback(error, updatedChallenge) {
       return error ? res.send(error) : res.send(updatedChallenge);
