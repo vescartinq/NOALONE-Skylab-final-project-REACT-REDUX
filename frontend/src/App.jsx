@@ -16,7 +16,7 @@ import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 import DashboardScreen from './views/DashboardScreen/DashboardScreen';
 import ListScreen from './views/ListScreen/ListScreen';
-import DetailScreen from './views/DetailScreen/DetailScreen';
+import DetailScreen from './views/DetailScreen2/DetailScreen';
 import LoginScreen from './views/LoginScreen/LoginScreen';
 import CreateChallengeScreen from './views/CreateChallengeScreen/CreateChallengeScreen';
 import DonateScreen from './views/DonateScreen/DonateScreen';
@@ -58,20 +58,6 @@ function App() {
       auth.onAuthStateChanged((user) => {
         if (user) {
           setFirebaseUser(user);
-          // user.getIdTokenResult()
-          //   .then((idTokenResult) => {
-          //     // eslint-disable-next-line no-console
-          //     console.log(idTokenResult);
-          //     if (idTokenResult.claims.admin) {
-          //       console.log('es administrador');
-          //       setFirebaseUser({
-          //         email: user.email,
-          //         uid: user.uid,
-          //         active: true,
-          //         rol: 'admin',
-          //       });
-          //     }
-          //   });
         } else {
           setFirebaseUser(null);
         }

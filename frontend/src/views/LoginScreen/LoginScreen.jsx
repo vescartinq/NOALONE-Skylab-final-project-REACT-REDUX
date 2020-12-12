@@ -27,7 +27,7 @@ function LoginScreen(props) {
           <h2>Registro de usuarios</h2>
           <hr />
           <div className="logo-image">
-            <img src="https://trello-attachments.s3.amazonaws.com/5f7afb80257ef0330839c5e5/5fbbd4196bb5e92529d09cb2/b08b0e07b1f907905119f6241281186c/color_logo_transparent_vertical.png" alt="logo" />
+            <img src="https://trello-attachments.s3.amazonaws.com/5f7afb80257ef0330839c5e5/5fbbd4196bb5e92529d09cb2/01e5a87cf40d898b0c0d9a9db60dc145/color_logo_transparent_vertical2.png" alt="logo" />
           </div>
           <button
             className="google-btn btn btn-dark"

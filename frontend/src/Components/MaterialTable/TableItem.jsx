@@ -107,33 +107,13 @@ export default function TableItem({ challenges }) {
     location.reload();
   };
 
-  // const data2 = [
-  //   {
-  //     title: 'Prueba',
-  //     creator: 'Victor',
-  //     collected: 1000,
-  //     target: 2000,
-  //     date: 'Hoy',
-  //   },
-  //   {
-  //     title: 'Prueba2',
-  //     creator: 'Santi',
-  //     collected: 1500,
-  //     target: 2500,
-  //     date: 'Mañana',
-  //   },
-  // ];
-
-  // eslint-disable-next-line no-debugger
-  debugger;
-
   return (
     <div className="table-container">
       <MaterialTable
         icons={tableIcons}
         columns={columns}
         data={data}
-        title="Retos en activo generados por el usuario"
+        title="Tabla de Administración de los retos activos"
         actions={[
           {
             icon: tableIcons.Edit,

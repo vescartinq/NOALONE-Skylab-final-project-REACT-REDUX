@@ -1,10 +1,10 @@
-/* Header */
+/* Header Logo */
 .MuiButtonBase-root.MuiIconButton-root.logo-btn.MuiIconButton-colorInherit{
     height: 4vw;
 }
 
 /* DrawerMenu */
-.MuiIconButton-label{
+#test-btn>.MuiIconButton-label{
     color: white;
 }
 
@@ -20,10 +20,10 @@
 .header-btn>Button{
     margin-left: 10px;
     padding-right: 10px;
-    border-right: white 2px solid;
     border-radius: 0;
 }
 
-.only-btn{
-    border-right: none !important;
+.MuiButtonBase-root.MuiButton-root.MuiButton-contained.only-btn.MuiButton-containedSecondary{
+    border-radius: 15px;
+    box-shadow: none;
 }

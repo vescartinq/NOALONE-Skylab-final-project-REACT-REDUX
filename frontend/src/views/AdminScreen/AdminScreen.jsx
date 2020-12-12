@@ -19,7 +19,6 @@ function AdminScreen() {
 
   return (
     <>
-      <h3>VISTA ADMINISTRADOR</h3>
       <div className="adminScreen-container">
         {loading ? (
           <div className="loading">LOADING....</div>

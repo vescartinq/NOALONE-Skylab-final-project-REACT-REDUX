@@ -19,15 +19,15 @@
     border-radius: 10px;
 }
 
-h2{
-    color: white;
+.text-center>h2{
+    color: white!important;
     padding: 1vw 3vw;
     font-size: 2vw;
 }
 
 .google-btn{
     margin-top: 2vw;
-    background-color:  #F57C00;
+    background-color:  #3F48CC;
     height: 4vw;
     width: 15vw;
     font-size: 1.2vw;
@@ -39,7 +39,7 @@ h2{
 }
 
 .google-btn:hover{
-    background-color:darkred;
+    background-color:#14A37F;
     box-shadow: white 1px 1px 7px 7px;
 }
 
