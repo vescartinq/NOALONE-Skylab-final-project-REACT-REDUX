@@ -68,7 +68,7 @@ export default function ListScreen() {
                 )}
                     actionIcon={(
                       <Link to={`/challenges/${challenge._id}`} exact>
-                        <IconButton aria-label={`info about ${challenge.title}`} className={classes.icon}>
+                        <IconButton id="icon-list" aria-label={`info about ${challenge.title}`} className={classes.icon}>
                           <InfoIcon />
                         </IconButton>
                       </Link>

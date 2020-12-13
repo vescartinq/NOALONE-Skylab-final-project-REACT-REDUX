@@ -1,52 +1,59 @@
-const usersController = require('./usersController');
+const userSchema = require('../models/userSchema');
+const usersController = require('./usersController')(userSchema);
 
-describe('userController', () => {
-  test('Should call a response on getMethod', () => {
-    const res = {
-      send: jest.fn(),
-    };
-    const user = {
-      find: jest.fn().mockImplementationOnce((query, callback) => {
-        callback(true, {});
-      }),
-    };
-    usersController(user).getMethod({ user: null }, res);
-    expect(res.send).toHaveBeenCalled();
+jest.mock('../models/challengeSchema');
+
+describe('usersController', () => {
+  let res;
+  beforeEach(() => {
+    res = { send: jest.fn() };
   });
-  test('Should call a response on getMethod', () => {
-    const res = {
-      send: jest.fn(),
-    };
-    const user = {
-      find: jest.fn().mockImplementationOnce((query, callback) => {
-        callback(false, {});
-      }),
-    };
-    usersController(user).getMethod({ user: null }, res);
-    expect(res.send).toHaveBeenCalled();
+
+  describe('getUsersMethod', () => {
+    test('should call res.send ', () => {
+      userSchema.find = jest.fn().mockImplementationOnce((query, callback) => callback());
+
+      usersController.getUsersMethod(null, res);
+      expect(res.send).toHaveBeenCalled();
+    });
+
+    test('should call res.send with error', () => {
+      userSchema.find = jest.fn().mockImplementationOnce((query, callback) => callback(true));
+
+      usersController.getUsersMethod(null, res);
+      expect(res.send).toHaveBeenCalled();
+    });
   });
-  test('should call a response on putMethod', () => {
-    const res = {
-      send: jest.fn(),
-    };
-    const user = {
-      create: jest.fn().mockImplementationOnce((query, callback) => {
-        callback(true, {});
-      }),
-    };
-    usersController(user).putMethod({}, res);
-    expect(res.send).toHaveBeenCalled();
-  });
-  test('should call a response on putMethod', () => {
-    const res = {
-      send: jest.fn(),
-    };
-    const user = {
-      create: jest.fn().mockImplementationOnce((query, callback) => {
-        callback(false, {});
-      }),
-    };
-    usersController(user).putMethod({}, res);
-    expect(res.send).toHaveBeenCalled();
+
+  describe('putUserMethod', () => {
+    test('should call res.send ', () => {
+      const req = {
+        body: { uid: null },
+      };
+
+      userSchema.findOneAndUpdate = jest.fn()
+        .mockImplementationOnce((query1, query2, query3, callback) => {
+          callback(false, {});
+        });
+
+      usersController.putUserMethod(req, res);
+
+      expect(res.send).toHaveBeenCalled();
+    });
+
+    test('should call res.send ', () => {
+      const req = {
+        body: { uid: null },
+      };
+
+      userSchema.findOneAndUpdate = jest.fn()
+        .mockImplementationOnce((query1, query2, query3, callback) => {
+          callback(true, null);
+        });
+
+      usersController.putUserMethod(req, res);
+
+      expect(res.send).toHaveBeenCalled();
+    });
   });
 });

@@ -6,6 +6,7 @@ import './AdminScreen.css';
 import { listChallenges } from '../../redux/actions/challenge-actions';
 
 import TableItem from '../../Components/MaterialTable/TableItem';
+import ChartBar from '../../Components/ChartBar/ChartBar';
 
 function AdminScreen() {
   const challengeList = useSelector((state) => state.challengeList);
@@ -32,6 +33,15 @@ function AdminScreen() {
 
       </div>
 
+      <div>
+        {loading ? (
+          <div className="loading">LOADING....</div>
+        ) : error ? (
+          <div className="error">ERROR, CHALLENGE NOT CREATED</div>
+        ) : (
+          <ChartBar challenges={challenges} />
+        )}
+      </div>
     </>
   );
 }

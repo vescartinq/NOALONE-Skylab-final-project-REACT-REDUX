@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { userRegister } from '../../redux/actions/challenge-actions';
+import { userRegister } from '../../redux/actions/user-actions';
 import './LoginScreen.css';
 
 function LoginScreen(props) {

@@ -69,7 +69,9 @@ export default function CaseSlide({ challenges }) {
         <div className="row">
           <div className="col-12">
             <div className="wpo-section-title">
-              <h2>RETOS CERCANOS A SU FINALIZACIÓN</h2>
+              <Link to="/challenges">
+                <h2>RETOS CERCANOS A SU FINALIZACIÓN</h2>
+              </Link>
             </div>
           </div>
         </div>

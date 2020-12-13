@@ -7,7 +7,7 @@ function routes(userSchema) {
 
   router.route('/')
     .get(userItems.getUsersMethod)
-    .put(userItems.putMethod);
+    .put(userItems.putUserMethod);
 
   // router.route('/:userId')
   //   .get(userItems.getMethod);

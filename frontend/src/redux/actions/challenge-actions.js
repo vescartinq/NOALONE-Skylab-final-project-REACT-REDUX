@@ -1,8 +1,5 @@
-/* eslint-disable no-debugger */
 import Axios from 'axios';
 import actionTypes from './actionTypes';
-
-import { auth, firebase } from '../../Firebase/firebase';
 
 const serverChallengesUrl = 'http://localhost:3000/challenges';
 
@@ -34,49 +31,6 @@ export const detailsChallenge = (challengeId) => async (dispatch) => {
   }
 };
 
-export const userRegister = () => async (dispatch) => {
-  dispatch({ type: actionTypes.USERS_REGISTER_REQUEST });
-  try {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    const data = await auth.signInWithPopup(provider);
-    // eslint-disable-next-line no-console
-    console.log(data);
-
-    localStorage.setItem('user', JSON.stringify({
-      uid: data.user.uid,
-      email: data.user.email,
-      displayName: data.user.displayName,
-    }));
-    dispatch({
-      type: actionTypes.USERS_REGISTER_SUCCESS,
-      payload: {
-        uid: data.user.uid,
-        email: data.user.email,
-        displayName: data.user.displayName,
-      },
-    });
-  } catch (error) {
-    dispatch({ type: actionTypes.USERS_REGISTER_FAIL, payload: error.message });
-  }
-};
-
-export const readActiveUser = () => (dispatch) => {
-  if (localStorage.getItem('user')) {
-    dispatch({
-      type: actionTypes.USERS_REGISTER_SUCCESS,
-      payload: JSON.parse(localStorage.getItem('user')),
-    });
-  }
-};
-
-export const signOutUser = () => (dispatch) => {
-  auth.signOut();
-  localStorage.removeItem('user');
-  dispatch({
-    type: actionTypes.SIGN_OUT_SUCCESS,
-  });
-};
-
 export const createChallenge = (newChallenge) => async (dispatch) => {
   dispatch({ type: actionTypes.CHALLENGE_CREATE_REQUEST });
   try {
@@ -91,7 +45,6 @@ export const createChallenge = (newChallenge) => async (dispatch) => {
 };
 
 export const deleteChallenge = (challenge) => async (dispatch) => {
-  debugger;
   dispatch({ type: actionTypes.CHALLENGE_DELETE_REQUEST });
   try {
     const { data: { _id } } = await Axios.delete(serverChallengesUrl, { data: challenge });

@@ -11,7 +11,7 @@ import {
   deleteChallengeReducer,
 } from './reducers/challengeReducer';
 
-import { readActiveUser } from './actions/challenge-actions';
+import { readActiveUser } from './actions/user-actions';
 
 const initialState = {};
 

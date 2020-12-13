@@ -1,0 +1,51 @@
+/* eslint-disable array-callback-return */
+import React from 'react';
+import { Bar } from 'react-chartjs-2';
+import './ChartBar.css';
+
+export default function ChartBar({ challenges }) {
+  const challengesTitles = [];
+  const challengesCollected = [];
+  const challengesTargets = [];
+  challenges.map((challenge) => {
+    challengesTitles.push(challenge.title);
+    challengesCollected.push(challenge.collected);
+    challengesTargets.push(challenge.target);
+  });
+
+  const data = {
+    labels: challengesTitles, // Parámetros de la gráfica
+    datasets: [{ // Personalización de la gráfica
+      label: 'Donaciones',
+      backgroundColor: 'rgb(182, 2, 2)',
+      borderColor: 'black',
+      borderWidth: 1,
+      hoverBackgroundColor: 'rgb(182, 2, 2, 0.637)',
+      hoverBorderColor: '#FFFF00',
+      data: challengesCollected,
+    },
+    {
+      label: 'Objetivo',
+      backgroundColor: 'rgb(22, 180, 93)',
+      borderColor: 'black',
+      borderWidth: 1,
+      hoverBackgroundColor: ' rgba(32, 97, 61, 0.575)',
+      hoverBorderColor: '#FFFF00',
+      data: challengesTargets,
+    }],
+  };
+
+  const options = { // configuraciones de manera externa
+    maintainaspectRatio: false,
+    responsive: true,
+  };
+
+  return (
+    <div className="chart-container">
+      <div className="chartBar" style={{ width: '100%', height: '50vw' }}>
+        <h2>Estado actual de los Retos Activos </h2>
+        <Bar data={data} options={options} />
+      </div>
+    </div>
+  );
+}

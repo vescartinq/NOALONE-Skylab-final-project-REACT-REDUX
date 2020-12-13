@@ -11,7 +11,7 @@ function challengesController(challengeSchema) {
     const challenge = req.body;
     const createCallBack = (error, newChallenge) => {
       // eslint-disable-next-line no-unused-expressions
-      error ? res.send(error) : res.json(newChallenge);
+      error ? res.send(error) : res.send(newChallenge);
     };
     challengeSchema.create(challenge, createCallBack);
   }
@@ -31,7 +31,7 @@ function challengesController(challengeSchema) {
   function deleteChallengeMethod(req, res) {
     const { _id } = req.body;
     function callback(error, deletedChallenge) {
-      return error ? res.send(error) : res.json(deletedChallenge);
+      return error ? res.send(error) : res.send(deletedChallenge);
     }
 
     challengeSchema.findByIdAndDelete(_id, callback);

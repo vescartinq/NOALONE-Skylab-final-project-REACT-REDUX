@@ -4,24 +4,6 @@ import { useDispatch } from 'react-redux';
 import MaterialTable from 'material-table';
 import './TableItem.css';
 
-// import {
-//   AddBox,
-//   ArrowDownward,
-//   Check,
-//   ChevronLeft,
-//   ChevronRight,
-//   Clear,
-//   DeleteOutline,
-//   Edit,
-//   FilterList,
-//   FirstPage,
-//   LastPage,
-//   Remove,
-//   SaveAlt,
-//   Search,
-//   ViewColumn,
-// } from '@material-ui/icons/AddBox';
-
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
 import Check from '@material-ui/icons/Check';
@@ -109,11 +91,12 @@ export default function TableItem({ challenges }) {
 
   return (
     <div className="table-container">
+      <h2>Tabla de Administración de Retos </h2>
       <MaterialTable
         icons={tableIcons}
         columns={columns}
         data={data}
-        title="Tabla de Administración de los retos activos"
+        title="Retos activos"
         actions={[
           {
             icon: tableIcons.Edit,

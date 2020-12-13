@@ -8,17 +8,17 @@ function usersController(userSchema) {
     userSchema.find(query, getCallBack);
   }
 
-  function putMethod({ body }, res) {
+  function putUserMethod({ body }, res) {
     const query = { uid: body.uid };
     // eslint-disable-next-line max-len
     userSchema.findOneAndUpdate(query, body, { upsert: true, useFindAndModify: false }, (usersError, user) => {
       if (usersError) {
         return res.send(usersError);
       }
-      return res.json(user);
+      return res.send(user);
     });
   }
-  return { getUsersMethod, putMethod };
+  return { getUsersMethod, putUserMethod };
 }
 
 module.exports = usersController;
