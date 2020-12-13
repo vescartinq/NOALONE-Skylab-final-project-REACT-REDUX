@@ -2,9 +2,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Button from 'react-bootstrap/Button';
 import './AdminScreen.css';
 import { listChallenges } from '../../redux/actions/challenge-actions';
+
+import TableItem from '../../Components/MaterialTable/TableItem';
+import ChartBar from '../../Components/ChartBar/ChartBar';
 
 function AdminScreen() {
   const challengeList = useSelector((state) => state.challengeList);
@@ -18,7 +20,6 @@ function AdminScreen() {
 
   return (
     <>
-      <h3>VISTA ADMINISTRADOR</h3>
       <div className="adminScreen-container">
         {loading ? (
           <div className="loading">LOADING....</div>
@@ -26,27 +27,21 @@ function AdminScreen() {
           <div className="error">ERROR, CHALLENGE NOT CREATED</div>
         ) : (
           <div className="admin-list">
-            <ul>
-              {challenges.map((challenge) => (
-                <li key={challenge._id}>
-                  <div className="admin-list_item">
-                    <div className="item-title">
-                      {' '}
-                      {challenge.title}
-                    </div>
-                    <div className="item-btns">
-                      <Button className="admin-btn" variant="secondary" type="button">Editar</Button>
-                      <Button className="admin-btn" variant="danger" type="button">Eliminar</Button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <TableItem challenges={challenges} />
           </div>
         )}
 
       </div>
 
+      <div>
+        {loading ? (
+          <div className="loading">LOADING....</div>
+        ) : error ? (
+          <div className="error">ERROR, CHALLENGE NOT CREATED</div>
+        ) : (
+          <ChartBar challenges={challenges} />
+        )}
+      </div>
     </>
   );
 }

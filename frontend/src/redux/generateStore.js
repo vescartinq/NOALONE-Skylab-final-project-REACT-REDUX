@@ -8,9 +8,10 @@ import {
   challengeDetailsReducer,
   challengeListReducer,
   userReducer,
+  deleteChallengeReducer,
 } from './reducers/challengeReducer';
 
-import { readActiveUser } from './actions/challenge-actions';
+import { readActiveUser } from './actions/user-actions';
 
 const initialState = {};
 
@@ -19,6 +20,7 @@ const reducer = combineReducers({
   challengeDetails: challengeDetailsReducer,
   user: userReducer,
   challengeCreate: challengeCreateReducer,
+  deleteChallenge: deleteChallengeReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

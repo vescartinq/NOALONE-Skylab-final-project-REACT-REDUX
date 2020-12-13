@@ -33,20 +33,4 @@ describe('challengeIdController', () => {
       expect(res.send).toHaveBeenCalled();
     });
   });
-
-  describe('deleteMethod', () => {
-    test('should delete a json', () => {
-      const challengeSchema = {
-        deleteOne: jest.fn().mockReturnValueOnce({
-          exec: jest.fn().mockImplementationOnce((callback) => callback(true)),
-        }),
-      };
-      const req = { params: { challengeID: '2' } };
-      const res = {
-        send: jest.fn(),
-      };
-      challengeIdController(challengeSchema).deleteByIdMethod(req, res);
-      expect(res.send).toHaveBeenCalled();
-    });
-  });
 });

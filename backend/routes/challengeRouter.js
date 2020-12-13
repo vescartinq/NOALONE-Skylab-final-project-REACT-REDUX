@@ -9,11 +9,12 @@ function challengeRouter(challengeSchema) {
 
   router.route('/')
     .get(challenges.getChallengesMethod)
-    .post(challenges.postChallengesMethod);
+    .post(challenges.postChallengesMethod)
+    .put(challenges.putChallengeMethod)
+    .delete(challenges.deleteChallengeMethod);
 
   router.route('/:challengeId')
-    .get(challenge.getByIdMethod)
-    .delete(challenge.deleteByIdMethod);
+    .get(challenge.getByIdMethod);
 
   return router;
 }

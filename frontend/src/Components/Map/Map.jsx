@@ -9,7 +9,7 @@ import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
 function Map({ challenge }) {
   return (
     <div id="challenge-location">
-      <h2 className="location-title">Ubicación del reto</h2>
+
       <GoogleMap
         defaultZoom={17}
         defaultCenter={

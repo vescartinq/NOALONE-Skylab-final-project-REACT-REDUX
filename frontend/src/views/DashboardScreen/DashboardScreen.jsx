@@ -1,16 +1,14 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 
-import Slider from 'react-carousel-responsive';
 import 'react-carousel-responsive/dist/styles.css';
 import { Button } from '@material-ui/core';
 
 import { listChallenges } from '../../redux/actions/challenge-actions';
 
-import CardList from '../../Components/CardList/CardList';
 import MainSlider from '../../Components/MainSlider/MainSlider';
+import CasesSlide from '../../Components/CasesSlider/CasesSlider';
 import './DashboardScreen.css';
 
 function DashboardScreen() {
@@ -62,21 +60,10 @@ function DashboardScreen() {
         <div className="error">ERROR</div>
       ) : (
         <>
-          <div className="list-challenges_item">
-            <Link to="/challenges">LISTADO DE TODOS LOS RETOS EN ACTIVO</Link>
-          </div>
-          <Slider slidesToShow={3} autoplay autoplaySpeed={3000} speed={1000}>
-            {challenges.map((challenge) => (
-              <Link to={`/challenges/${challenge._id}`} key={challenge._id} className="text-link">
-                <CardList challenge={challenge} />
-              </Link>
-            ))}
-          </Slider>
+          <CasesSlide challenges={challenges} />
         </>
       )}
-
     </div>
-
   );
 }
 

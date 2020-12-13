@@ -85,7 +85,7 @@ export default function ChallengeCard({ challenge }) {
             <Typography variant="body2" color="textSecondary" component="p">
               {challenge.miniDescription}
             </Typography>
-            <Button href="/stripe" size="large" type="button" variant="contained" color="primary" fullWidth>DONATE</Button>
+            <Button href="/donate" size="large" type="button" variant="contained" color="primary" fullWidth>DONATE</Button>
           </CardContent>
 
           <CardActions disableSpacing>

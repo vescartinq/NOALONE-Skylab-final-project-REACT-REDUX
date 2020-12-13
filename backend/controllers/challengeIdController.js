@@ -8,18 +8,7 @@ function challengeIdController(challengeSchema) {
       .exec(getCallBack);
   }
 
-  function deleteByIdMethod(req, res) {
-    const query = { _id: req.params.challengeId };
-    const getCallBack = (getError, challenges) => (
-      getError ? res.send(getError) : res.send('Challenge Deleted')
-    );
-    challengeSchema.deleteOne(query)
-      .exec(getCallBack);
-  }
-
-  // TODO: PatchMethod;
-
-  return { getByIdMethod, deleteByIdMethod };
+  return { getByIdMethod };
 }
 
 module.exports = challengeIdController;

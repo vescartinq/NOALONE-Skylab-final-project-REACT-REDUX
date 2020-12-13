@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import {
   List, ListItem, ListItemIcon, ListItemText, Divider,
 } from '@material-ui/core';
@@ -8,36 +7,21 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-}));
-
 function ListItemLink(props) {
   return <ListItem button component="a" {...props} />;
 }
 
 export default function DataList() {
-  const classes = useStyles();
-
   return (
-    <div className={classes.root}>
+    <div className="main-container">
       <List component="nav" aria-label="main mailbox folders">
         <ListItem button>
           <ListItemIcon>
             <AccountCircleIcon />
           </ListItemIcon>
-          <ListItemText primary="Perfil" />
-        </ListItem>
-
-        <ListItem button>
-          <ListItemIcon>
-            <AssignmentTurnedInIcon />
-          </ListItemIcon>
-          <ListItemText primary="Tus Retos" />
+          <ListItemLink href="/">
+            <ListItemText primary="Perfil" />
+          </ListItemLink>
         </ListItem>
 
         <ListItem button>
@@ -49,6 +33,15 @@ export default function DataList() {
           </ListItemLink>
         </ListItem>
       </List>
+
+      <ListItem button>
+        <ListItemIcon>
+          <AssignmentTurnedInIcon />
+        </ListItemIcon>
+        <ListItemLink href="/admin">
+          <ListItemText primary="Tus Retos" />
+        </ListItemLink>
+      </ListItem>
 
       <Divider />
 

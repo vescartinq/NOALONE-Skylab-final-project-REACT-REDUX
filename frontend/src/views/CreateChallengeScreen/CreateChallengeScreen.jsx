@@ -26,7 +26,7 @@ function CreateChallengeScreen() {
   return (
     <div className="form-builder">
       <h3>CREA TU RETO SOLIDARIO</h3>
-      <Form>
+      <Form id="create-form">
         <Form.Group controlId="exampleForm.ControlInput1">
           <Form.Label>Título</Form.Label>
           <Form.Control type="text" placeholder="Título del reto" onChange={(event) => setTitle(event.target.value)} />
@@ -102,6 +102,7 @@ function CreateChallengeScreen() {
               },
             ));
           }}
+          href="/challenges"
         >
           CREAR RETO
         </Button>

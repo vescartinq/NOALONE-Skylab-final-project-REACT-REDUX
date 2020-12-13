@@ -2,10 +2,7 @@ import Axios from 'axios';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import * as actions from './challenge-actions';
-import {
-  CHALLENGE_LIST_REQUEST,
-  CHALLENGE_DETAILS_REQUEST,
-} from './actionTypes';
+import action from './actionTypes';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -26,7 +23,7 @@ describe('Challenge-actions', () => {
   describe('listChallenges', () => {
     test('should call ChallengeListRequest', async () => {
       const response = {
-        type: CHALLENGE_LIST_REQUEST,
+        type: action.CHALLENGE_LIST_REQUEST,
       };
 
       Axios.get.mockImplementationOnce(() => Promise.resolve(response));
@@ -57,7 +54,7 @@ describe('Challenge-actions', () => {
 
     test('should call ChallengeListFail', async () => {
       const error = {
-        type: 'CHALLENGE_LIST_FAIL',
+        type: action.CHALLENGE_LIST_FAIL,
       };
 
       Axios.get.mockImplementationOnce(() => Promise.rejected(error));
@@ -82,7 +79,7 @@ describe('Challenge-actions', () => {
     };
     test('should call ChallengeDetailsRequest', async () => {
       const response = {
-        type: CHALLENGE_DETAILS_REQUEST,
+        type: action.CHALLENGE_DETAILS_REQUEST,
       };
 
       Axios.get.mockImplementationOnce(() => Promise.resolve(response));
@@ -93,7 +90,7 @@ describe('Challenge-actions', () => {
 
     test('should call ChallengeDetailsFail', async () => {
       const error = {
-        type: 'CHALLENGE_DETAILS_FAIL',
+        type: action.CHALLENGE_DETAILS_FAIL,
       };
 
       Axios.get.mockImplementationOnce(() => Promise.rejected(error));
