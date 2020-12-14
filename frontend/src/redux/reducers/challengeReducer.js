@@ -1,10 +1,8 @@
 import actionTypes from '../actions/actionTypes';
 
-const initialState = { loading: false, active: false };
-
 export const challengeListReducer = (
   state = { loading: true, challenges: [] },
-  action,
+  action = {},
 ) => {
   switch (action.type) {
     case actionTypes.CHALLENGE_LIST_REQUEST:
@@ -18,7 +16,7 @@ export const challengeListReducer = (
   }
 };
 
-export const challengeDetailsReducer = (state = { loading: true }, action) => {
+export const challengeDetailsReducer = (state = { loading: true }, action = {}) => {
   switch (action.type) {
     case actionTypes.CHALLENGE_DETAILS_REQUEST:
       return { loading: true };
@@ -31,24 +29,7 @@ export const challengeDetailsReducer = (state = { loading: true }, action) => {
   }
 };
 
-export const userReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case actionTypes.USERS_REGISTER_REQUEST:
-      return { ...state, loading: true };
-    case actionTypes.USERS_REGISTER_SUCCESS:
-      return {
-        ...state, loading: false, user: action.payload, active: true,
-      };
-    case actionTypes.USERS_REGISTER_FAIL:
-      return { ...initialState };
-    case actionTypes.SIGN_OUT_SUCCESS:
-      return { ...initialState };
-    default:
-      return { ...state };
-  }
-};
-
-export const challengeCreateReducer = (state = {}, action) => {
+export const challengeCreateReducer = (state = {}, action = {}) => {
   switch (action.type) {
     case actionTypes.CHALLENGE_CREATE_REQUEST:
       return { loading: true };
@@ -67,7 +48,7 @@ export const challengeCreateReducer = (state = {}, action) => {
   }
 };
 
-export const deleteChallengeReducer = (state = { loading: true }, action) => {
+export const deleteChallengeReducer = (state = { loading: true }, action = {}) => {
   switch (action.type) {
     case actionTypes.CHALLENGE_DELETE_REQUEST:
       return { loading: true };

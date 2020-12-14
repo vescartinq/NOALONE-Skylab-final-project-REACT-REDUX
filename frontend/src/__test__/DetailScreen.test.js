@@ -4,18 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import createGoogleMapsMock from 'jest-google-maps-mock';
-import Map from './Map';
+import DetailScreen from '../views/DetailScreen2/DetailScreen';
 
-jest.mock('./../../redux/actions/challenge-actions.js');
+jest.mock('./../redux/actions/challenge-actions.js');
 const buildStore = configureStore([thunk]);
 
-// TODO: ' Testing no funciona';
-
-describe('Map', () => {
+describe('DetailScreen', () => {
   let wrapper;
-  let googleMaps;
-
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
     store.dispatch = jest.fn();
@@ -28,29 +23,19 @@ describe('Map', () => {
     );
   };
 
-  beforeEach(() => {
-    googleMaps = createGoogleMapsMock();
-  });
-
-  afterEach(() => {
-    jest.restoreAllMocks();
-    wrapper = null;
-  });
-
   test('should waiting loaded data to render the compo', () => {
     const initialState = {
-      challenge: {
-        lat: 10,
-        lng: 5,
+      challengeDetails: {
+        loading: true,
+        error: false,
+        challenge: [{
+          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+        }],
       },
     };
 
-    const mapDiv = document.createElement('div');
-    // eslint-disable-next-line no-new
-    new googleMaps.Map(mapDiv);
-
     wrapper = wrapperFactory(initialState);
-    render(<Map />, { wrapper });
-    expect(googleMaps.Map).toBeDefined();
+    render(<DetailScreen />, { wrapper });
+    expect(document.querySelector('.loading').textContent).toBe('LOADING');
   });
 });

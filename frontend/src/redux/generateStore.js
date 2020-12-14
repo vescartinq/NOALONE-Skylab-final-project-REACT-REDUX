@@ -7,9 +7,10 @@ import {
   challengeCreateReducer,
   challengeDetailsReducer,
   challengeListReducer,
-  userReducer,
   deleteChallengeReducer,
 } from './reducers/challengeReducer';
+
+import userReducer from './reducers/userReducer';
 
 import { readActiveUser } from './actions/user-actions';
 

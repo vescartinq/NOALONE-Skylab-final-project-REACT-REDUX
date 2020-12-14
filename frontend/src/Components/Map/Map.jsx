@@ -1,5 +1,7 @@
 import React from 'react';
-import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps';
+import {
+  GoogleMap, Marker, withScriptjs, withGoogleMap,
+} from 'react-google-maps';
 
 // 41.636077760895915, 2.362037440802656 (Escola Milenari)
 // 41.60826049795665, 2.2872998604405472 (ajuntament granollers)
@@ -11,11 +13,13 @@ function Map({ challenge }) {
     <div id="challenge-location">
 
       <GoogleMap
-        defaultZoom={17}
+        defaultZoom={18}
         defaultCenter={
         { lat: challenge.lat, lng: challenge.lng }
         }
-      />
+      >
+        <Marker key="lalala" position={{ lat: challenge?.lat, lng: challenge?.lng }} />
+      </GoogleMap>
     </div>
   );
 }

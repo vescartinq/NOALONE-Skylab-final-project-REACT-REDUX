@@ -9,11 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Link } from 'react-router-dom';
 
-import cs1 from '../images/case/img-1.png';
-import cs2 from '../images/case/img-2.png';
-import cs3 from '../images/case/img-3.png';
-
-import './CasesSlider.css';
+import './CaseSlide.css';
 
 export default function CaseSlide({ challenges }) {
   const settings = {
@@ -118,8 +114,8 @@ export default function CaseSlide({ challenges }) {
                       </div>
                       <div className="case-btn">
                         <ul>
-                          <li><Link onClick={ClickHandler} to={`/challenges/${challenge._id}`}>Ver Detalles</Link></li>
-                          <li><Link onClick={ClickHandler} to="/donate">Donar</Link></li>
+                          <li className="case-btn_detail"><Link onClick={ClickHandler} to={`/challenges/${challenge._id}`}>Ver Detalles</Link></li>
+                          <li className="case-btn_donate"><Link onClick={ClickHandler} to="/donate">Donar</Link></li>
                         </ul>
                       </div>
                     </div>

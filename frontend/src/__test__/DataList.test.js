@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import CardList from './CardList';
+import DataList from '../Components/DataList/DataList';
 
 const buildStore = configureStore({ thunk });
 
-describe('ChallengeCard', () => {
+describe('DataList', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -24,13 +24,21 @@ describe('ChallengeCard', () => {
 
   test('should be rended', () => {
     const initialState = {
-      challenge: {
-        _id: '1', title: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
-      },
+      actions: { open: true },
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<CardList challenge={initialState} />, { wrapper });
-    expect(<CardList />).toBeDefined();
+    render(<DataList />, { wrapper });
+    expect(<DataList />).toBeDefined();
   });
+
+  //   test('should be rended closing the box', () => {
+  //     const initialState = {
+  //       actions: { open: false },
+  //     };
+
+//     wrapper = wrapperFactory(initialState);
+//     render(<DrawerBox actions={initialState} />, { wrapper });
+//     expect(<DrawerBox />).toBeDefined();
+//   });
 });

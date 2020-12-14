@@ -8,7 +8,7 @@ import { Button } from '@material-ui/core';
 import { listChallenges } from '../../redux/actions/challenge-actions';
 
 import MainSlider from '../../Components/MainSlider/MainSlider';
-import CasesSlide from '../../Components/CasesSlider/CasesSlider';
+import CaseSlide from '../../Components/CasesSlider/CaseSlide';
 import './DashboardScreen.css';
 
 function DashboardScreen() {
@@ -60,7 +60,7 @@ function DashboardScreen() {
         <div className="error">ERROR</div>
       ) : (
         <>
-          <CasesSlide challenges={challenges} />
+          <CaseSlide challenges={challenges} />
         </>
       )}
     </div>

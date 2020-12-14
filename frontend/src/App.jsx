@@ -70,17 +70,12 @@ function App() {
     if (localStorage.getItem('user')) {
       const userStorage = JSON.parse(localStorage.getItem('user'));
       if (userStorage?.uid === firebaseUser?.uid) {
-        // eslint-disable-next-line no-console
-        console.log('usuario logeado');
         return <Route component={component} path={path} {...rest} />;
       }
 
-      // eslint-disable-next-line no-console
-      console.log('usuario no existe, redirecting to login...');
       return <Redirect to="/login" {...rest} />;
     }
-    // eslint-disable-next-line no-console
-    console.log('no user in localStorage, redirecting to login');
+
     return <Redirect to="/login" {...rest} />;
   };
 

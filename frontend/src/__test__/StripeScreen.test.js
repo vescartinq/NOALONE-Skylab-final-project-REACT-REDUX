@@ -4,11 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import Header from './Header';
+import StripeScreen from '../views/StripeScreen/StripeScreen';
 
-const buildStore = configureStore({ thunk });
+jest.mock('./../redux/actions/challenge-actions.js');
+const buildStore = configureStore([thunk]);
 
-describe('DrawerBox', () => {
+describe('StripeScreen', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -22,23 +23,19 @@ describe('DrawerBox', () => {
     );
   };
 
-  test('should be rended with the box closed', () => {
+  test('should be rended', () => {
     const initialState = {
-      openAction: jest.fn({ open: false }),
+      challengeList: {
+        loading: true,
+        error: false,
+        projects: [{
+          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+        }],
+      },
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<Header actions={initialState} />, { wrapper });
-    expect(<Header />).toBeDefined();
-  });
-
-  test('should be rended with the box opened', () => {
-    const initialState = {
-      openAction: jest.fn({ open: true }),
-    };
-
-    wrapper = wrapperFactory(initialState);
-    render(<Header actions={initialState} />, { wrapper });
-    expect(<Header />).toBeDefined();
+    render(<StripeScreen />, { wrapper });
+    expect(<StripeScreen />).toBeDefined();
   });
 });

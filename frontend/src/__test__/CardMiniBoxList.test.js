@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import CardMiniBox from './CardMiniBoxList';
+import CardMiniBox from '../Components/CardMiniBoxList/CardMiniBoxList';
 
 const buildStore = configureStore({ thunk });
 

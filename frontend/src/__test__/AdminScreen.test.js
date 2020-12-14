@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ListScreen from './ListScreen';
+import AdminScreen from '../views/AdminScreen/AdminScreen';
 
-jest.mock('./../../redux/actions/challenge-actions.js');
+jest.mock('./../redux/actions/challenge-actions.js');
 const buildStore = configureStore([thunk]);
 
-describe('Challenge', () => {
+describe('AdminScreen', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -35,7 +35,7 @@ describe('Challenge', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ListScreen />, { wrapper });
+    render(<AdminScreen />, { wrapper });
     expect(document.querySelector('.loading').textContent).toBe('LOADING....');
   });
 
@@ -45,13 +45,23 @@ describe('Challenge', () => {
         loading: false,
         error: true,
         projects: [{
-          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+          _id: '1',
+          name: 'Title Name',
+          description: 'Description',
+          miniDescription: 'miniDescription',
+          category: 'category',
+          image: 'image',
+          target: 0,
+          collected: 0,
+          participants: 0,
+          days: 0,
+          creator: 'creator',
         }],
       },
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ListScreen />, { wrapper });
+    render(<AdminScreen />, { wrapper });
     expect(document.querySelector('.error').textContent).toBe('ERROR, CHALLENGE NOT CREATED');
   });
 
@@ -61,13 +71,23 @@ describe('Challenge', () => {
         loading: true,
         error: false,
         projects: [{
-          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+          _id: '1',
+          name: 'Title Name',
+          description: 'Description',
+          miniDescription: 'miniDescription',
+          category: 'category',
+          image: 'image',
+          target: 0,
+          collected: 0,
+          participants: 0,
+          days: 0,
+          creator: 'creator',
         }],
       },
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ListScreen />, { wrapper });
-    expect(<ListScreen />).toBeDefined();
+    render(<AdminScreen />, { wrapper });
+    expect(<AdminScreen />).toBeDefined();
   });
 });

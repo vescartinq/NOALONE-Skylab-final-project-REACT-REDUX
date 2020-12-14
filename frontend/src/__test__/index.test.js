@@ -7,7 +7,7 @@ test('renders with App and root div', () => {
   root.id = 'root';
   document.body.appendChild(root);
 
-  require('./index.jsx');
+  require('../index.jsx');
 
   expect(ReactDOM.render).toHaveBeenCalled();
 });

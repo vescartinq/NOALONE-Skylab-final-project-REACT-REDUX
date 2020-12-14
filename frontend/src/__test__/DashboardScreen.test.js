@@ -4,12 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import DetailScreen from './DetailScreen';
+import DashboardScreen from '../views/DashboardScreen/DashboardScreen';
 
-jest.mock('../../redux/actions/challenge-actions.js');
+jest.mock('./../redux/actions/challenge-actions.js');
 const buildStore = configureStore([thunk]);
 
-describe('DetailScreen', () => {
+describe('Challenge', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -23,25 +23,9 @@ describe('DetailScreen', () => {
     );
   };
 
-  test('should be rended', () => {
-    const initialState = {
-      challengeDetails: {
-        loading: true,
-        error: false,
-        projects: [{
-          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
-        }],
-      },
-    };
-
-    wrapper = wrapperFactory(initialState);
-    render(<DetailScreen />, { wrapper });
-    expect(<DetailScreen />).toBeDefined();
-  });
-
   test('should waiting loaded data to render the compo', () => {
     const initialState = {
-      challengeDetails: {
+      challengeList: {
         loading: true,
         error: false,
         projects: [{
@@ -51,13 +35,13 @@ describe('DetailScreen', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<DetailScreen />, { wrapper });
+    render(<DashboardScreen />, { wrapper });
     expect(document.querySelector('.loading').textContent).toBe('LOADING');
   });
 
   test('should waiting loaded data to render the compo', () => {
     const initialState = {
-      challengeDetails: {
+      challengeList: {
         loading: false,
         error: true,
         projects: [{
@@ -67,13 +51,13 @@ describe('DetailScreen', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<DetailScreen />, { wrapper });
+    render(<DashboardScreen />, { wrapper });
     expect(document.querySelector('.error').textContent).toBe('ERROR');
   });
 
-  test('should rended ChallengeCard', () => {
+  test('should be rended', () => {
     const initialState = {
-      challengeDetails: {
+      challengeList: {
         loading: true,
         error: false,
         projects: [{
@@ -83,7 +67,7 @@ describe('DetailScreen', () => {
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<DetailScreen />, { wrapper });
-    expect(document.querySelector('.ChallengeCard-item')).not.toBeUndefined();
+    render(<DashboardScreen />, { wrapper });
+    expect(<DashboardScreen />).toBeDefined();
   });
 });

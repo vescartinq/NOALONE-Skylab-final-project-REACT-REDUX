@@ -17,16 +17,16 @@ export default function ChartBar({ challenges }) {
     labels: challengesTitles, // Parámetros de la gráfica
     datasets: [{ // Personalización de la gráfica
       label: 'Donaciones',
-      backgroundColor: 'rgb(182, 2, 2)',
+      backgroundColor: ' rgb(221, 164, 59)',
       borderColor: 'black',
       borderWidth: 1,
-      hoverBackgroundColor: 'rgb(182, 2, 2, 0.637)',
+      hoverBackgroundColor: ' rgba(221, 164, 59, 0.555)',
       hoverBorderColor: '#FFFF00',
       data: challengesCollected,
     },
     {
       label: 'Objetivo',
-      backgroundColor: 'rgb(22, 180, 93)',
+      backgroundColor: '#14A37F',
       borderColor: 'black',
       borderWidth: 1,
       hoverBackgroundColor: ' rgba(32, 97, 61, 0.575)',

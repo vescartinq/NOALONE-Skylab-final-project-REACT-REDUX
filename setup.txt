@@ -32,3 +32,7 @@ npm i mongoose
 
 11 JEST
 npm i jest
+
+
+-------SONARQUBE------
+cd ../../../SKYLAB CODERS/sonarqube-8.4.1.35646/sonar-scanner-cli-4.5.0.2216-windows/sonar-scanner-4.5.0.2216-windows/bin/sonar-scanner.bat

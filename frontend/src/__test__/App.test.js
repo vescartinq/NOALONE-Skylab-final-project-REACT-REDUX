@@ -2,9 +2,9 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
-import LoginScreen from './LoginScreen';
+import App from '../App';
 
-describe('LoginScreen', () => {
+describe('App', () => {
   let container;
 
   beforeEach(() => {
@@ -14,7 +14,7 @@ describe('LoginScreen', () => {
     act(() => {
       render(
         <BrowserRouter>
-          <LoginScreen />
+          <App />
         </BrowserRouter>,
         container,
       );
@@ -27,7 +27,7 @@ describe('LoginScreen', () => {
     container = null;
   });
 
-  it('Should have a title', () => {
-    expect(container.getElementsByClassName('login-page')).toBeDefined();
+  it('Should render without crashing', () => {
+    expect(document.getElementById('test-btn')).toBeDefined();
   });
 });

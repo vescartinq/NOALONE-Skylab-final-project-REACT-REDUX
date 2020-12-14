@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import { BrowserRouter } from 'react-router-dom';
-import Footer from './Footer';
+import Footer from '../Components/Footer/Footer';
 
 describe('Footer', () => {
   let container;

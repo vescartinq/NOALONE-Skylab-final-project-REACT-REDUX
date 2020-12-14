@@ -44,6 +44,7 @@ function ChallengeCard2({ challenge }) {
                 <Nav tabs>
                   <NavItem>
                     <NavLink
+                      id="description"
                       className={classnames({ active: activeTab === '1' })}
                       onClick={() => { toggle('1'); }}
                     >
@@ -52,6 +53,7 @@ function ChallengeCard2({ challenge }) {
                   </NavItem>
                   <NavItem>
                     <NavLink
+                      id="donation"
                       className={classnames({ active: activeTab === '2' })}
                       onClick={() => { toggle('2'); }}
                     >

@@ -9,9 +9,6 @@ function routes(userSchema) {
     .get(userItems.getUsersMethod)
     .put(userItems.putUserMethod);
 
-  // router.route('/:userId')
-  //   .get(userItems.getMethod);
-
   return router;
 }
 

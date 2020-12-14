@@ -156,7 +156,6 @@
       border: 0;
       border: 1px solid  #08cc7f!important;
       padding-left: 15px;
-      border-radius: 0;
       -webkit-box-shadow: none !important;
       box-shadow: none !important;
       color: #525252;
@@ -180,7 +179,7 @@
       opacity: 0;
     }
     
-    .wpo-payment-select ul {
+    .wpo-payment-select> ul {
       list-style: none;
     }
     
@@ -193,35 +192,27 @@
       overflow: unset !important;
     }
     
-    .payment-name ul li {
+    .payment-name>ul> li {
       width: 100px;
       height: 60px;
       text-align: center;
       line-height: 60px;
-    }
-    
-    .payment-name ul {
-      list-style: none;
-    }
-    
-    .payment-name ul li input {
-      margin-right: 0;
-    }
-    
-    .payment-name ul li {
       margin-right: 15px;
     }
     
-    .wpo-payment-area h2 {
-      padding-bottom: 40px;
-      margin-bottom: 0;
+    .payment-name> ul {
+      list-style: none;
+    }
+    
+    .payment-name> ul> li> input {
+      margin-right: 0;
     }
     
     .wpo-payment-select ul {
       display: flex;
     }
     
-    .wpo-payment-select ul li {
+    .wpo-payment-select> ul> li {
       margin-right: 10px;
       font-size: 15px;
       font-weight: 500;
@@ -237,6 +228,8 @@
       font-size: 20px;
       color: #878787;
       font-weight: 700;
+      padding-bottom: 40px;
+      margin-bottom: 0;
     }
     
     .wpo-payment-area h2 span {
@@ -246,12 +239,6 @@
     
     .wpo-payment-area {
       width: 100%;
-    }
-    
-    .payment-name ul li input {
-      margin-right: 0;
-      position: absolute;
-      z-index: -1;
     }
     
     .payment-name ul li input:checked~label {

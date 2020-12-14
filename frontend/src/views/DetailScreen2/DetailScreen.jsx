@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 import { detailsChallenge } from '../../redux/actions/challenge-actions';
 import ChallengeCard2 from '../../Components/ChallengeCard/ChallengeCard2';
 
-const CaseSingle = () => {
+const DetailScreen = () => {
   const dispatch = useDispatch();
   const { challengeId } = useParams();
   const challengeDetails = useSelector((state) => state.challengeDetails);
@@ -30,4 +30,4 @@ const CaseSingle = () => {
   );
 };
 
-export default CaseSingle;
+export default DetailScreen;

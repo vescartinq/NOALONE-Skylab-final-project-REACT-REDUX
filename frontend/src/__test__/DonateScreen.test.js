@@ -4,11 +4,12 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import DrawerBox from './DrawerBox';
+import DonateScreen from '../views/DonateScreen/DonateScreen';
 
-const buildStore = configureStore({ thunk });
+jest.mock('./../redux/actions/challenge-actions.js');
+const buildStore = configureStore([thunk]);
 
-describe('DrawerBox', () => {
+describe('StripeScreen', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -22,23 +23,19 @@ describe('DrawerBox', () => {
     );
   };
 
-  test('should be rended opening the box', () => {
+  test('should be rended', () => {
     const initialState = {
-      actions: { open: true },
+      challengeList: {
+        loading: true,
+        error: false,
+        projects: [{
+          _id: '1', name: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
+        }],
+      },
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<DrawerBox actions={initialState} />, { wrapper });
-    expect(<DrawerBox />).toBeDefined();
-  });
-
-  test('should be rended closing the box', () => {
-    const initialState = {
-      actions: { open: false },
-    };
-
-    wrapper = wrapperFactory(initialState);
-    render(<DrawerBox actions={initialState} />, { wrapper });
-    expect(<DrawerBox />).toBeDefined();
+    render(<DonateScreen />, { wrapper });
+    expect(<DonateScreen />).toBeDefined();
   });
 });

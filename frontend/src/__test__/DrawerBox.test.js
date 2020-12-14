@@ -4,11 +4,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ChallengeCard from './ChallengeCard';
+import DrawerBox from '../Components/DrawerBox/DrawerBox';
 
 const buildStore = configureStore({ thunk });
 
-describe('ChallengeCard', () => {
+describe('DrawerBox', () => {
   let wrapper;
   const wrapperFactory = (wrapperInitialState) => {
     const store = buildStore(wrapperInitialState);
@@ -22,15 +22,23 @@ describe('ChallengeCard', () => {
     );
   };
 
-  test('should be rended', () => {
+  test('should be rended opening the box', () => {
     const initialState = {
-      challenge: {
-        _id: '1', title: 'Title Name', description: 'Description', miniDescription: 'miniDescription', category: 'category', image: 'image', target: 0, collected: 0, participants: 0, days: 0, creator: 'creator',
-      },
+      actions: { open: true },
     };
 
     wrapper = wrapperFactory(initialState);
-    render(<ChallengeCard challenge={initialState} />, { wrapper });
-    expect(<ChallengeCard />).toBeDefined();
+    render(<DrawerBox actions={initialState} />, { wrapper });
+    expect(<DrawerBox />).toBeDefined();
+  });
+
+  test('should be rended closing the box', () => {
+    const initialState = {
+      actions: { open: false },
+    };
+
+    wrapper = wrapperFactory(initialState);
+    render(<DrawerBox actions={initialState} />, { wrapper });
+    expect(<DrawerBox />).toBeDefined();
   });
 });
