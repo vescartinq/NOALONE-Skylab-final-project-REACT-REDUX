@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import './ChartBar.css';
@@ -7,7 +6,8 @@ export default function ChartBar({ challenges }) {
   const challengesTitles = [];
   const challengesCollected = [];
   const challengesTargets = [];
-  challenges.map((challenge) => {
+
+  challenges.forEach((challenge) => {
     challengesTitles.push(challenge.title);
     challengesCollected.push(challenge.collected);
     challengesTargets.push(challenge.target);

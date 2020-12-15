@@ -35,6 +35,8 @@ export const createChallenge = (newChallenge) => async (dispatch) => {
   dispatch({ type: actionTypes.CHALLENGE_CREATE_REQUEST });
   try {
     const { data } = await Axios.post(serverChallengesUrl, newChallenge);
+    // eslint-disable-next-line no-debugger
+    debugger;
     dispatch({
       type: actionTypes.CHALLENGE_CREATE_SUCCESS,
       payload: data,

@@ -8,6 +8,7 @@ export const challengeListReducer = (
     case actionTypes.CHALLENGE_LIST_REQUEST:
       return { loading: true };
     case actionTypes.CHALLENGE_LIST_SUCCESS:
+
       return { loading: false, challenges: action.payload };
     case actionTypes.CHALLENGE_LIST_FAIL:
       return { loading: false, error: action.payload };
@@ -29,11 +30,13 @@ export const challengeDetailsReducer = (state = { loading: true }, action = {}) 
   }
 };
 
-export const challengeCreateReducer = (state = {}, action = {}) => {
+export const challengeCreateReducer = (state = {}, action) => {
   switch (action.type) {
     case actionTypes.CHALLENGE_CREATE_REQUEST:
       return { loading: true };
     case actionTypes.CHALLENGE_CREATE_SUCCESS:
+      // eslint-disable-next-line no-debugger
+      debugger;
       return {
         loading: false,
         success: true,

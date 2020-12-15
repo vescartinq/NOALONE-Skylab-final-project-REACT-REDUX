@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const debug = require('debug')('app');
 const chalk = require('chalk');
 const morgan = require('morgan');
+const cors = require('cors');
 const mongoose = require('mongoose');
 const challengeSchema = require('./src/models/challengeSchema');
 const challengeRouter = require('./src/routes/challengeRouter')(challengeSchema);
@@ -20,6 +21,7 @@ mongoose.connect(dbUrl, {
 });
 
 app.use(morgan('tiny'));
+app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
