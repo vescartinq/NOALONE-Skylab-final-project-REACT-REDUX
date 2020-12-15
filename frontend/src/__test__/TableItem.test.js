@@ -22,7 +22,7 @@ describe('ChallengeCard', () => {
     );
   };
 
-  test('should be rended', () => { // TODO
+  test('should be rended', () => {
     const initialState = [
       {
         _id: '1', creator: 'xx', title: 'xx', collected: 1, target: 2, data: 'xx',

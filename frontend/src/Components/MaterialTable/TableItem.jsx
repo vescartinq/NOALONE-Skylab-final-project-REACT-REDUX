@@ -90,11 +90,13 @@ export default function TableItem({ challenges }) {
         title="Retos activos"
         actions={[
           {
+            id: 'editChallenge',
             icon: tableIcons.Edit,
             tooltip: 'Editar Reto',
             onClick: (event, rowData) => alert(`Has presionado editar el reto ${rowData.title}`),
           },
           {
+            id: 'removeChallenge',
             icon: tableIcons.Delete,
             tooltip: 'Eliminar Reto',
             onClick: (event, rowData) => findChallenge(rowData),

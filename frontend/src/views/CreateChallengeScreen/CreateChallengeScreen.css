@@ -3,14 +3,13 @@
 }
 
 #create-form{
-	background-color: rgba(0, 0, 0, 0.692);
 	padding: 4vw;
 	border-radius: 15px;
-	box-shadow: #F57C00 0 0 10px 5px;
+	box-shadow: #949494 5px 5px 5px 6px;
 }
 
 .form-label{
-	color:white;
+	color:rgb(105, 105, 105);
 	font-weight: bold;
 	font-size: larger;
 }
@@ -27,4 +26,12 @@
 h1 {
 	text-align: center;
 	color: gray;
+}
+
+#submit-form{
+	background-color:#2e42b3;
+}
+
+#submit-form:hover{
+	background-color:#162161;
 }

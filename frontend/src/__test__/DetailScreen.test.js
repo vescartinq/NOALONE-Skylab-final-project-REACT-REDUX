@@ -38,4 +38,18 @@ describe('DetailScreen', () => {
     render(<DetailScreen />, { wrapper });
     expect(document.querySelector('.loading').textContent).toBe('LOADING');
   });
+
+  test('should send error data to render the compo', () => {
+    const initialState = {
+      challengeDetails: {
+        loading: false,
+        error: true,
+        challenge: [],
+      },
+    };
+
+    wrapper = wrapperFactory(initialState);
+    render(<DetailScreen />, { wrapper });
+    expect(document.querySelector('.error').textContent).toBe('ERROR');
+  });
 });
