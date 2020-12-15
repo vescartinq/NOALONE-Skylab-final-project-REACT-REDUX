@@ -26,21 +26,17 @@ function AdminScreen() {
         ) : error ? (
           <div className="error">ERROR, CHALLENGE NOT CREATED</div>
         ) : (
-          <div className="admin-list">
-            <TableItem challenges={challenges} />
+          <div>
+            <div className="admin-list">
+              <TableItem challenges={challenges} />
+            </div>
+            <div>
+              <ChartBar challenges={challenges} />
+            </div>
+
           </div>
         )}
 
-      </div>
-
-      <div>
-        {loading ? (
-          <div className="loading">LOADING....</div>
-        ) : error ? (
-          <div className="error">ERROR, CHALLENGE NOT CREATED</div>
-        ) : (
-          <ChartBar challenges={challenges} />
-        )}
       </div>
     </>
   );
