@@ -17,6 +17,10 @@
     text-decoration: inherit;
 }
 
+.text-link:hover{
+    color: orange!important;
+}
+
 .header-btn>Button{
     margin-left: 10px;
     padding-right: 10px;

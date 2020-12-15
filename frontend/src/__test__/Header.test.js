@@ -1,11 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Header from '../Components/Header/Header';
+import { signOutUser } from '../redux/actions/user-actions';
 
+jest.mock('../redux/actions/user-actions');
 const buildStore = configureStore({ thunk });
 
 describe('Header', () => {
@@ -55,5 +57,16 @@ describe('Header', () => {
     expect(<Header />).toBeDefined();
   });
 
-  // TODO onClick signOut
+  test('should be rended SignOut button', () => {
+    const initialState = {
+      openAction: jest.fn({ open: false }),
+      user: { active: true },
+    };
+
+    wrapper = wrapperFactory(initialState);
+    render(<Header openAction={initialState} />, { wrapper });
+    document.querySelector('#signOut').click();
+
+    expect(signOutUser).toHaveBeenCalled();
+  }); // TODO props.history.push
 });

@@ -54,5 +54,5 @@ describe('ChallengeCard2', () => {
     fireEvent.click(buttonElement, event);
 
     expect(<ChallengeCard2 />).toBeDefined();
-  });
+  }); // TODO onClick MaterialIcon
 });

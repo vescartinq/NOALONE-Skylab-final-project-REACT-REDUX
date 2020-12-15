@@ -8,6 +8,14 @@ import LoginScreen from '../views/LoginScreen/LoginScreen';
 
 jest.mock('./../redux/actions/challenge-actions.js');
 const buildStore = configureStore([thunk]);
+const mockHistoryPush = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  useHistory: () => ({
+    push: mockHistoryPush,
+  }),
+}));
 
 describe('loginScreen', () => {
   let wrapper;
@@ -34,4 +42,5 @@ describe('loginScreen', () => {
     render(<LoginScreen />, { wrapper });
     expect(<LoginScreen />).toBeDefined();
   });
+  // TODO props.history.push
 });

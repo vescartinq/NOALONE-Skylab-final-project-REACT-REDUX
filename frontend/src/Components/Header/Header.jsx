@@ -68,7 +68,7 @@ function Header(props) {
                   <Link to="/admin" className="text-link">ADMIN</Link>
                 </Button>
                 <Button color="primary">
-                  <Link to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
+                  <Link id="signOut" to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
                 </Button>
                 <Button className="only-btn" variant="contained" color="secondary">
                   <Link to="/create" className="text-link">CREAR RETO</Link>

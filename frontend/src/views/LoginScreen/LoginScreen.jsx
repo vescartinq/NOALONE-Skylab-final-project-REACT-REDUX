@@ -10,8 +10,6 @@ function LoginScreen(props) {
 
   const loading = useSelector((store) => store.user.loading);
   const active = useSelector((store) => store.user.active);
-  // eslint-disable-next-line no-console
-  console.log(active);
 
   useEffect(() => {
     if (active) {
