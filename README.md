@@ -2,7 +2,7 @@
 
 ---
 
-<img src="D:\GitHub\NOALONE-victor-final-project-REACT-REDUX\frontend\src\assets\img\color_logo_transparent_vertical.png" width="200" height="200" >
+<img src="images/logo.jpg" width="200" height="200" >
 
 ## Table of Contents
 
