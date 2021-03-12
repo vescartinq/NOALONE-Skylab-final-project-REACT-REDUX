@@ -2,6 +2,8 @@
 
 ---
 
+<img src="images/logo.jpg" width="200" height="200" >
+
 ## Table of Contents
 
 1. [General Info](#general-info)
