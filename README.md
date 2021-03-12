@@ -33,8 +33,6 @@ the following technologies:
 - ESLINT
 - TDD - JEST
 
-![color_logo_transparent_vertical2](https://user-images.githubusercontent.com/65297719/107152215-edac3a00-6966-11eb-802e-c937755b8f3a.png)
-
 ## 2. Web Example
 
 You can download the app here :
