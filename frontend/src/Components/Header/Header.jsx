@@ -29,6 +29,7 @@ function Header(props) {
   const classes = useStyle();
 
   const dispatch = useDispatch();
+  const userInfo = useSelector((store) => store.user);
 
   const signOut = () => {
     dispatch(signOutUser());
@@ -38,9 +39,6 @@ function Header(props) {
   useEffect(() => {
     dispatch(readActiveUser());
   }, [dispatch]);
-
-  const userInfo = useSelector((store) => store.user);
-  const userName = userInfo.user.displayName.split(' ', 1);
 
   return (
     <header className="header">
@@ -70,8 +68,11 @@ function Header(props) {
             userInfo.active ? (
               <>
                 <Button color="primary">
-                  <Link to="/profile" className="text-link">{userName}</Link>
+                  <Link to="/profile" className="text-link">
+                    {userInfo.user.displayName.split(' ', 1)}
+                  </Link>
                 </Button>
+
                 <Button color="primary">
                   <Link id="signOut" to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
                 </Button>
