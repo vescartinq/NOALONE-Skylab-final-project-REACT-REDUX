@@ -1,5 +1,7 @@
 import React from 'react';
 import { makeStyles, Drawer, Divider } from '@material-ui/core';
+import { grey } from '@material-ui/core/colors';
+
 import DataList from '../DataList/DataList';
 
 const styles = makeStyles((theme) => ({
@@ -9,6 +11,7 @@ const styles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: 240,
+    backgroundColor: grey,
   },
   toolbar: theme.mixins.toolbar,
 }));

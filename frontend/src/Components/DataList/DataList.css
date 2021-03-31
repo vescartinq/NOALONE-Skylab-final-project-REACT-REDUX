@@ -9,7 +9,7 @@
 }
 
 .user {
-  background-color: rgba(0, 0, 0, 0.685);
+  background-color: #14a37f;
   height: 15vh;
   display: flex;
   align-content: center;
@@ -30,4 +30,8 @@
   color: white;
   font-weight: bold;
   margin-top: 20%;
+}
+
+.routes > a {
+  text-align: center;
 }

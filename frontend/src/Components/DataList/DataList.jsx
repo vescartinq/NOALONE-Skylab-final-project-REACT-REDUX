@@ -32,12 +32,13 @@ export default function DataList() {
       <Divider variant="inset" component="li" />
 
       <List component="nav" aria-label="main mailbox folders">
+
         <ListItem button>
           <ListItemIcon>
-            <AccountCircleIcon />
+            <AssignmentTurnedInIcon />
           </ListItemIcon>
-          <ListItemLink href="/">
-            <ListItemText primary="Perfil" />
+          <ListItemLink href="/profile">
+            <ListItemText primary="Tus Retos" />
           </ListItemLink>
         </ListItem>
 
@@ -51,29 +52,23 @@ export default function DataList() {
         </ListItem>
       </List>
 
-      <ListItem button>
-        <ListItemIcon>
-          <AssignmentTurnedInIcon />
-        </ListItemIcon>
-        <ListItemLink href="/admin">
-          <ListItemText primary="Tus Retos" />
-        </ListItemLink>
-      </ListItem>
-
       <Divider />
 
       <List component="nav" aria-label="secondary mailbox folders">
-        <ListItemLink href="/">
-          <ListItemText primary="Menú Principal" />
-        </ListItemLink>
+        <div className="routes">
 
-        <ListItemLink href="/challenges">
-          <ListItemText primary="Retos Activos" />
-        </ListItemLink>
+          <ListItemLink href="/">
+            <ListItemText primary="Menú Principal" />
+          </ListItemLink>
 
-        <ListItemLink href="/donate">
-          <ListItemText primary="Haz una Donación" />
-        </ListItemLink>
+          <ListItemLink href="/challenges">
+            <ListItemText primary="Retos Activos" />
+          </ListItemLink>
+
+          <ListItemLink href="/donate">
+            <ListItemText primary="Haz una Donación" />
+          </ListItemLink>
+        </div>
       </List>
     </div>
   );

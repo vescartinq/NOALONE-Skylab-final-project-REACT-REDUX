@@ -40,7 +40,6 @@ function Header(props) {
   }, [dispatch]);
 
   const userInfo = useSelector((store) => store.user);
-  console.log(userInfo);
   const userName = userInfo.user.displayName.split(' ', 1);
 
   return (
@@ -71,10 +70,7 @@ function Header(props) {
             userInfo.active ? (
               <>
                 <Button color="primary">
-                  <Link to="/admin" className="text-link">{userName}</Link>
-                </Button>
-                <Button color="primary">
-                  <Link to="/admin" className="text-link">ADMIN</Link>
+                  <Link to="/profile" className="text-link">{userName}</Link>
                 </Button>
                 <Button color="primary">
                   <Link id="signOut" to="/login" className="text-link" onClick={() => signOut()}>SIGN OUT</Link>
