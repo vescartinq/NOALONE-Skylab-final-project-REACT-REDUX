@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   withRouter,
@@ -10,7 +10,7 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 
-import { signOutUser } from '../../redux/actions/user-actions';
+import { readActiveUser, signOutUser } from '../../redux/actions/user-actions';
 
 import './Header.css';
 
@@ -35,7 +35,13 @@ function Header(props) {
     props.history.push('/login');
   };
 
-  const active = useSelector((store) => store.user.active);
+  useEffect(() => {
+    dispatch(readActiveUser());
+  }, [dispatch]);
+
+  const userInfo = useSelector((store) => store.user);
+  console.log(userInfo);
+  const userName = userInfo.user.displayName.split(' ', 1);
 
   return (
     <header className="header">
@@ -62,8 +68,11 @@ function Header(props) {
           <div className="header-btn">
 
             {
-            active ? (
+            userInfo.active ? (
               <>
+                <Button color="primary">
+                  <Link to="/admin" className="text-link">{userName}</Link>
+                </Button>
                 <Button color="primary">
                   <Link to="/admin" className="text-link">ADMIN</Link>
                 </Button>
