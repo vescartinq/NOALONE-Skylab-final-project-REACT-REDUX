@@ -1,17 +1,19 @@
 import React from 'react';
+
 import FacebookIcon from '@material-ui/icons/Facebook';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import PinterestIcon from '@material-ui/icons/Pinterest';
 import InstagramIcon from '@material-ui/icons/Instagram';
+
 import './footer.css';
 
 function Footer() {
   return (
     <>
       <footer className="footer">
-        <div className="footer-upper-container">
-          <div className="footer-upper-container_left">
+        <div className="footer-upper-container  row">
+          <div className="footer-upper-container_left col-6">
             <div className="footer-general-info">
               <div className="logo-footer">
                 <img src="https://trello-attachments.s3.amazonaws.com/5fbbd4196bb5e92529d09cb2/330x344/8a8465305583a21ba6120f2337ba0638/LogoFooter.png" alt="logo-footer" />
@@ -47,7 +49,7 @@ function Footer() {
 
           <hr />
 
-          <div className="footer-upper-container_right">
+          <div className="footer-upper-container_right col-4">
             <div className="contact-info">
               <div className="contact-links">
                 <p className="contact-links__link" data-test-id="contact-link">

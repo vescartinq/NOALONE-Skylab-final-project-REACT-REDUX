@@ -1,14 +1,37 @@
 .text-link {
-    color: inherit;
-    text-decoration: inherit;
+  color: inherit;
+  text-decoration: inherit;
 }
 
-.main-container{
-    width: '100%';
-    max-width: 360px;
+.main-container {
+  width: '100%';
+  max-width: 360px;
 }
 
-.MuiDrawer-root.MuiDrawer-modal.makeStyles-drawer-7 > .MuiPaper-root{
-    background-color:  #062265 ;
+.user {
+  background-color: #14a37f;
+  height: 15vh;
+  display: flex;
+  align-content: center;
 }
 
+.user > div {
+  margin-top: 10%;
+}
+
+.user > .MuiAvatar-circle {
+  height: 60%;
+  width: 40%;
+  margin-right: 30px;
+}
+
+.user > .MuiListItemText-root > span {
+  font-size: 30px;
+  color: white;
+  font-weight: bold;
+  margin-top: 20%;
+}
+
+.routes > a {
+  text-align: center;
+}

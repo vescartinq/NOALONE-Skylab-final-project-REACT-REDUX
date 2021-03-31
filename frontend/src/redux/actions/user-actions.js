@@ -8,17 +8,23 @@ export const userRegister = () => async (dispatch) => {
     const provider = new firebase.auth.GoogleAuthProvider();
     const data = await auth.signInWithPopup(provider);
 
-    localStorage.setItem('user', JSON.stringify({
-      uid: data.user.uid,
-      email: data.user.email,
-      displayName: data.user.displayName,
-    }));
+    localStorage.setItem(
+      'user',
+      JSON.stringify({
+        uid: data.user.uid,
+        email: data.user.email,
+        displayName: data.user.displayName,
+        image: data.user.photoURL,
+        // eslint-disable-next-line comma-dangle
+      })
+    );
     dispatch({
       type: actionTypes.USERS_REGISTER_SUCCESS,
       payload: {
         uid: data.user.uid,
         email: data.user.email,
         displayName: data.user.displayName,
+        image: data.user.photoURL,
       },
     });
   } catch (error) {
