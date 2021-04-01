@@ -1,25 +1,28 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import './CreateChallengeScreen.css';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useDispatch } from 'react-redux';
-import './CreateChallengeScreen.css';
+
 import { createChallenge } from '../../redux/actions/challenge-actions';
 
 function CreateChallengeScreen() {
-  const [title, setTitle] = useState('');
-  const [date, setDate] = useState('');
-  const [miniDescription, setMiniDescription] = useState('');
-  const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [image, setImage] = useState('');
-  const [target, setTarget] = useState('');
   const [collected, setCollected] = useState('');
-  const [participants, setParticipants] = useState('');
-  const [days, setDays] = useState('');
   const [creator, setCreator] = useState('');
+  const [date, setDate] = useState('');
+  const [days, setDays] = useState('');
+  const [description, setDescription] = useState('');
+  const [geolocation, setGeolocation] = useState('');
+  const [image, setImage] = useState('');
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
+  const [miniDescription, setMiniDescription] = useState('');
+  const [participants, setParticipants] = useState('');
+  const [target, setTarget] = useState('');
+  const [title, setTitle] = useState('');
 
   const dispatch = useDispatch();
 
@@ -72,6 +75,11 @@ function CreateChallengeScreen() {
           <Form.Control className="data-form" type="text" placeholder="Introduce el nombre de la persona responsable del reto" onChange={(event) => setCreator(event.target.value)} />
         </Form.Group>
         <Form.Group controlId="exampleForm.ControlInput10">
+          <Form.Label>Dirección</Form.Label>
+          <Form.Control className="data-form" type="text" placeholder="Introduce la ubicación del reto" onChange={(event) => setGeolocation(event.target.value)} />
+        </Form.Group>
+
+        <Form.Group controlId="exampleForm.ControlInput10">
           <Form.Label>Latitud</Form.Label>
           <Form.Control className="data-form" type="number" placeholder="Introduce la coordenada de latitud de la ubicación del reto, por defecto 41.39867113104639" onChange={(event) => setLat(event.target.value)} />
         </Form.Group>
@@ -97,6 +105,7 @@ function CreateChallengeScreen() {
                 participants,
                 days,
                 creator,
+                geolocation,
                 lat,
                 lng,
               },

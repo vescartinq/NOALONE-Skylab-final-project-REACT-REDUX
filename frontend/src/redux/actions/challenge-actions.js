@@ -16,7 +16,10 @@ export const listChallenges = () => async (dispatch) => {
 };
 
 export const detailsChallenge = (challengeId) => async (dispatch) => {
-  dispatch({ type: actionTypes.CHALLENGE_DETAILS_REQUEST, payload: challengeId });
+  dispatch({
+    type: actionTypes.CHALLENGE_DETAILS_REQUEST,
+    payload: challengeId,
+  });
   try {
     const { data } = await Axios.get(`/challenges/${challengeId}`);
     dispatch({ type: actionTypes.CHALLENGE_DETAILS_SUCCESS, payload: data });
@@ -42,19 +45,27 @@ export const createChallenge = (newChallenge) => async (dispatch) => {
       payload: data,
     });
   } catch (error) {
-    dispatch({ type: actionTypes.CHALLENGE_CREATE_FAIL, payload: error.message });
+    dispatch({
+      type: actionTypes.CHALLENGE_CREATE_FAIL,
+      payload: error.message,
+    });
   }
 };
 
 export const deleteChallenge = (challenge) => async (dispatch) => {
   dispatch({ type: actionTypes.CHALLENGE_DELETE_REQUEST });
   try {
-    const { data: { _id } } = await Axios.delete(serverChallengesUrl, { data: challenge });
+    const {
+      data: { _id },
+    } = await Axios.delete(serverChallengesUrl, { data: challenge });
     dispatch({
       type: actionTypes.CHALLENGE_DELETE_SUCCESS,
       payload: _id,
     });
   } catch (error) {
-    dispatch({ type: actionTypes.CHALLENGE_DELETE_FAIL, payload: error.message });
+    dispatch({
+      type: actionTypes.CHALLENGE_DELETE_FAIL,
+      payload: error.message,
+    });
   }
 };

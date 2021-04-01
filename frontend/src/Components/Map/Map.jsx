@@ -18,7 +18,7 @@ function Map({ challenge }) {
         { lat: challenge.lat, lng: challenge.lng }
         }
       >
-        <Marker key="lalala" position={{ lat: challenge?.lat, lng: challenge?.lng }} />
+        <Marker key="position" position={{ lat: challenge?.lat, lng: challenge?.lng }} />
       </GoogleMap>
     </div>
   );

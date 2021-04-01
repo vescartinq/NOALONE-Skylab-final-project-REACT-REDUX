@@ -12,6 +12,7 @@ const challengeSchema = new Schema({
   participants: { type: Number, required: true },
   days: { type: Number, required: true },
   creator: { type: String, required: true },
+  geolocation: { type: String, required: true },
   lat: { type: Number, required: true },
   lng: { type: Number, required: true },
 });
