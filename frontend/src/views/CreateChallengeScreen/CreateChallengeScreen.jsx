@@ -74,7 +74,6 @@ function CreateChallengeScreen() {
           <Form.Label>Responsable del reto</Form.Label>
           <Form.Control className="data-form" type="text" placeholder="Introduce el nombre de la persona responsable del reto" onChange={(event) => setCreator(event.target.value)} />
         </Form.Group>
-        {/* TODO */}
         <Form.Group controlId="exampleForm.ControlInput10">
           <Form.Label>Dirección</Form.Label>
           <Form.Control className="data-form" type="text" placeholder="Introduce la ubicación del reto" onChange={(event) => setGeolocation(event.target.value)} />

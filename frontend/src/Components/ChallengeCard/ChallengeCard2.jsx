@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable no-nested-ternary */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from 'react';
 
@@ -15,7 +12,6 @@ import {
 } from '../../../node_modules/reactstrap/lib/index';
 
 import Map from '../Map/Map';
-import credentials from '../../Private/credential';
 
 import pmt1 from '../images/checkout/img-1.png';
 import pmt2 from '../images/checkout/img-2.png';
@@ -24,15 +20,13 @@ import pmt4 from '../images/checkout/img-4.png';
 
 import './ChallengeCard2.css';
 
-const location = '1600+Amphitheatre+Parkway,+Mountain+View,+CA';
+// const location = '1600+Amphitheatre+Parkway,+Mountain+View,+CA';
 
-// const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${credentials.mapsKey2}`;
-const mapURL2 = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_MAPS_API_KEY}`;
+const mapURL = `https://maps.googleapis.com/maps/api/js?v=3.exp&key=${process.env.REACT_APP_MAPS_API_KEY}`;
 
 // const geocodeURL = `https://maps.googleapis.com/maps/api/geocode/json?address=${location}&key=${credentials.mapsKey2}`;
 
 function ChallengeCard2({ challenge }) {
-  console.log(challenge);
   const SubmitHandler = (e) => {
     e.preventDefault();
   };
@@ -139,15 +133,8 @@ function ChallengeCard2({ challenge }) {
                           </div>
                         </div>
                         <h2 className="location-title">Ubicación del reto</h2>
-                        {/* <Map
-                          googleMapURL={mapURL}
-                          containerElement={<div style={{ height: '400px' }} />}
-                          mapElement={<div style={{ height: '100%' }} />}
-                          loadingElement={<p>Cargando...</p>}
-                          challenge={challenge}
-                        /> */}
                         <Map
-                          googleMapURL={mapURL2}
+                          googleMapURL={mapURL}
                           containerElement={<div style={{ height: '400px' }} />}
                           mapElement={<div style={{ height: '100%' }} />}
                           loadingElement={<p>Cargando...</p>}
