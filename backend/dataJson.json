@@ -11,6 +11,7 @@
     "participants": 3,
     "days": 30,
     "creator": "Victor",
+    "geolocation": "Cardedeu",
     "lat": 41.636077760895915,
     "lng": 2.362037440802656
   },
@@ -26,6 +27,7 @@
     "participants": 25,
     "days": 17,
     "creator": "Albert",
+    "geolocation": "Granollers",
     "lat": 41.636077760895915,
     "lng": 2.362037440802656
   },
@@ -41,6 +43,7 @@
     "participants": 1,
     "days": 29,
     "creator": "Gerard",
+    "geolocation": "Granollers",
     "lat": 41.599842293714985,
     "lng": 2.2914629744953348
   },
@@ -56,7 +59,8 @@
     "participants": 72,
     "days": 5,
     "creator": "Santi",
-    "lat":  41.39867113104639,
+    "geolocation": "Barcelona",
+    "lat": 41.39867113104639,
     "lng": 2.199980997782548
   },
   {
@@ -71,6 +75,7 @@
     "participants": 54,
     "days": 18,
     "creator": "Helga",
+    "geolocation": "Martorelles",
     "lat": 41.39867113104639,
     "lng": 2.199980997782548
   },
@@ -86,6 +91,7 @@
     "participants": 524,
     "days": 19,
     "creator": "Marta",
+    "geolocation": "Barcelona",
     "lat": 41.39867113104639,
     "lng": 2.199980997782548
   },
@@ -97,12 +103,12 @@
     "category": "Support",
     "image": "https://images.pexels.com/photos/3823542/pexels-photo-3823542.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     "target": 5000,
-    "collected":  3000,
+    "collected": 3000,
     "participants": 2,
     "days": 173,
     "creator": "Albert",
+    "geolocation": "Martorelles",
     "lat": 41.636077760895915,
     "lng": 2.362037440802656
   }
-  
-    ]
+]
